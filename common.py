@@ -1,6 +1,7 @@
 """Shared helpers: IDs, Pauli strings, result cache, CSV output."""
 import csv
 import json
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -33,9 +34,17 @@ def load_cache(circuit: str, tag: str) -> dict:
 def save_cache(circuit: str, tag: str, cache: dict) -> None:
     p = cache_path(circuit, tag)
     p.parent.mkdir(parents=True, exist_ok=True)
+    text = json.dumps(cache, indent=1)
     tmp = p.with_suffix(".tmp")
-    tmp.write_text(json.dumps(cache, indent=1))
-    tmp.replace(p)  # atomic, so a crash never leaves a half-written file
+    for attempt in range(5):
+        try:
+            tmp.write_text(text)
+            tmp.replace(p)  # atomic, so a crash never leaves a half-written file
+            return
+        except OSError:
+            # the Hybrid machine's network volume sometimes refuses the rename
+            time.sleep(1 + attempt)
+    p.write_text(text)  # last resort: plain overwrite
 
 
 def values_in_order(circuit: str, tag: str, n: int) -> list[float]:

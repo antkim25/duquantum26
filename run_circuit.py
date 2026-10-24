@@ -75,6 +75,24 @@ def main():
     cache = load_cache(a.circuit, tag)
     cache["meta"] = {"device": a.device, "options": options, "n": n}
 
+    # adopt jobs this run already submitted (matched by job name) that the cache lost,
+    # e.g. after a crash, so they aren't paid for twice
+    prefix, suffix = f"{a.circuit}_", f"_{tag}"
+    for job in bq.search():
+        name = job.job_name or ""
+        if not (name.startswith(prefix) and name.endswith(suffix)):
+            continue
+        key = cid(a.circuit, int(name[len(prefix):-len(suffix)]))
+        if key in cache["values"] or key in cache["pending"]:
+            continue
+        if job.ok:
+            cache["values"][key] = float(job.expectation_value)
+            print(f"  recovered {key} = {job.expectation_value:+.6f} from job {job.job_id}")
+        elif job.run_status not in JOB_NO_RESULT_TERMINAL_STATES:
+            cache["pending"][key] = job.job_id
+            print(f"  re-attached to running job for {key}")
+    save_cache(a.circuit, tag, cache)
+
     qubits = range(n)
     if a.qubits:
         qubits = [int(x) for x in a.qubits.split(",")]
