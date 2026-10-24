@@ -107,3 +107,72 @@ S2 7.5, G1 14.5, G2 17.5 = 1D chains (n-1 links, alternating layers); S3 12.2 = 
 G3 15.0 = 6x6 grid (60 links / 4); G4 15.8 = 2D with 63 links.
 S3 pauli-path 1e-4 on 19 qubits: corr² = 0.93 (the first 5 were lucky; slow jobs collapse).
 Plan (with teammate): G3/G4 -> pauli-path 1e-4 (if near-Clifford like S3); G2 -> MPS chi 128/256 on slope qubits 4-11, 27-31.
+
+## G2-G4 runs, Oct 24 (Colin's account, token fingerprint 1b9fda99f0, $29.93 start balance)
+Free plan limits (`bq plan`): mps/pps job time 15 min, 1000 mps/pps jobs/day, no gpu pauli-path.
+`run_circuit.py` now saves per-job `metrics` (run_time_ms, queue_time_ms, cost, status) in each results JSON.
+Logs for every run are in `logs/`.
+
+### Test round (`test_round.sh`, one qubit per setting)
+| circuit | command | value | job run time | actual cost |
+|---|---|---|---|---|
+| G3 q14 | `run_circuit.py G3 --device pauli-path --threshold 1e-4 --qubits 14 --batch 1` | 0.000000 | 205 s | $0.00 |
+| G4 q14 | `run_circuit.py G4 --device pauli-path --threshold 1e-4 --qubits 14 --batch 1` | 0.000000 | 144 s | $0.00 |
+| G3 q14 | same + `--level 3` | 0.000000 | 120 s | $0.00 |
+| G2 q8 | `run_circuit.py G2 --device mps.cpu --chi 128 --qubits 8` | +0.106 (chi64 +0.306) | 130 s | $0.00 |
+| G2 q8 | `--chi 256` | -0.008 | 135 s | $0.00 |
+| G2 q8 | `--chi 512` | refused: NOT_ENOUGH_FUNDS, needs >= $82.26 balance (force_run would risk the whole balance) | - | $0.00 |
+
+=> Pauli-path 1e-4 gives exactly 0 on G3 and G4 (and on G3 at level 3, which is ~40% faster). Exactly 0 = every
+kept term is off-diagonal, i.e. the truncation collapse seen on S2. Like the 1e-3 probe, G3/G4 look generic,
+not near-Clifford like S3. Running all qubits at 1e-4 would just produce zeros, so it was not run.
+=> MPS run time barely depends on chi (chi128 ~2 min, chi256 ~2.3 min), but the funds hold grows:
+chi256 holds ~$21.76 per job (one at a time on $30), chi512 needs $82.
+
+### G2 MPS chi 128, all 36 qubits
+`python run_circuit.py G2 --device mps.cpu --chi 128 --qubits 4,...,31 --batch 5` then the rest with `--batch 4`.
+Jobs 64-145 s (median 115 s), 5 in parallel, ~19 min total for 36, actual cost $0.00.
+Output: `submissions/G2_mps.cpu_chi128.csv`.
+Compared with chi64: every slope qubit drops by 0.09-0.20 (e.g. q6 0.60 -> 0.40, q8 0.31 -> 0.11), but the ordering
+holds: corr²(chi64, chi128) = 0.975 on the 13 slope qubits, 0.967 on all 36. Not converged yet
+(q8 keeps falling: 0.31 / 0.11 / -0.01 at chi 64 / 128 / 256). Do not mix chi levels in one CSV: the shift is a
+level offset, so chi128 slope + chi64 plateau would distort the correlation.
+
+### G2 MPS chi 256, all 36 qubits (done)
+`python run_circuit.py G2 --device mps.cpu --chi 256 --qubits <slope first, then rest> --batch 1`
+(`--batch 1` because each chi256 job holds ~$21.76.) Jobs 59-173 s (median 139 s), one at a time,
+~80 min wall time for 36 (19:21-20:40 UTC), actual cost $0.00. Output: `submissions/G2_mps.cpu_chi256.csv`.
+
+| q | chi64 | chi128 | chi256 |
+|---|---|---|---|
+| 2 | +0.953 | +0.916 | +0.854 |
+| 4 | +0.834 | +0.731 | +0.601 |
+| 6 | +0.595 | +0.401 | +0.227 |
+| 8 | +0.306 | +0.106 | -0.008 |
+| 10 | +0.268 | +0.103 | +0.035 |
+| 12-26 | ~0 (±0.06) | ~0 (±0.03) | ~0 (±0.01) |
+| 28 | -0.030 | -0.124 | -0.181 |
+| 30 | +0.433 | +0.310 | +0.190 |
+| 32 | +0.886 | +0.850 | +0.804 |
+| 0,1,34,35 | ~+0.998 | ~+0.995 | ~+0.99 |
+
+corr² between runs (all 36): chi64-chi128 0.967, chi128-chi256 0.981, chi64-chi256 0.904. Slope qubits only:
+chi128-chi256 0.987, chi64-chi256 0.938.
+=> Each doubling of chi narrows the light cone: slope values drop by 0.1-0.2 per step, the plateau gets cleaner (noise
+±0.06 -> ±0.01), q28/q29 go more negative. The shift is shrinking (64->128 differs more than 128->256), so chi256
+is the closest to converged we can reach (chi512 needs an $82 balance). Submit chi256 for G2 (chi64 scored 426/600).
+
+### G3 MPS chi 128: stopped after 4 qubits (too slow, and billed)
+`python run_circuit.py G3 --device mps.cpu --chi 128 --batch 4 --wait-funds` (new `--wait-funds`: retry when
+another run holds the balance).
+| qubit | value | job run time | actual cost |
+|---|---|---|---|
+| 0 | -0.035 | 894 s | $0.00 |
+| 1 | -0.055 | 1141 s | $0.48 |
+| 2 | +0.000 | 1184 s | $0.50 |
+| 3 | -0.002 | 1186 s | $0.50 |
+Total $1.48 actually charged. The `--budget 1` cap stopped new submits; the 3 jobs in flight (q4-6) were canceled at $0.
+=> On the 6x6 grid MPS jobs take 15-20 min (10x G2's chain) and past ~15 min they are billed (~$0.50/job).
+Full G3 would be ~$18 and ~3 h, and the values come out ~0 like MPS on S3. MPS is not the method for G3.
+Next for G3: pauli-path 1e-4 probe on corner/edge qubits (0, 5, 30, 35, 2, 33), where true values are likely far
+from 0. q14 = 0 is not proof of collapse: middle qubits are probably scrambled to ~0 anyway.

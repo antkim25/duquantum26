@@ -1,0 +1,24 @@
+{
+ "meta": {
+  "device": "pauli-path",
+  "options": {
+   "pauli_path_truncation_threshold": 0.0001
+  },
+  "n": 36
+ },
+ "values": {
+  "Duke_G3_14": 0.0
+ },
+ "pending": {},
+ "metrics": {
+  "Duke_G3_14": {
+   "job_id": "1rrjOvSKTs59IsF7",
+   "status": "COMPLETED",
+   "run_time_ms": 205175,
+   "queue_time_ms": 307,
+   "cost": 0.0,
+   "error": null
+  }
+ },
+ "cost": 0.0
+}

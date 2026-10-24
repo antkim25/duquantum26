@@ -1,0 +1,28 @@
+[BQ-PYTHON-SDK][WARNING] - Beta version 0.19.0b1 of BlueQubit Python SDK is being used.
+G2: 36 qubits | info: CircuitInfo(circuit_id='Duke_G2_0', num_qubits=36, count_ops={'cz': 3780, 'u3': 7704, 'x': 2, 'z': 1}, depth_1q=223, depth_2q=216)
+tag=mps.cpu_chi128  done=1  pending=0  new=12
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: 15gRnvmMk7R46ERI, name: G2_4_mps.cpu_chi128, device: mps.cpu, run status: RUNNING, created on: 2026-10-24 19:02:09 UTC, estimated runtime: 7230100 ms, allowed runtime: 15960200 ms, estimated cost: $3.02, num qubits: 36, shots: 1024
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: JrmgTUUInMhn1IHi, name: G2_5_mps.cpu_chi128, device: mps.cpu, run status: RUNNING, created on: 2026-10-24 19:02:10 UTC, estimated runtime: 7230100 ms, allowed runtime: 15960200 ms, estimated cost: $3.02, num qubits: 36, shots: 1024
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: 34P1iL90aBxaQ4zI, name: G2_6_mps.cpu_chi128, device: mps.cpu, run status: RUNNING, created on: 2026-10-24 19:02:13 UTC, estimated runtime: 7230100 ms, allowed runtime: 15960200 ms, estimated cost: $3.02, num qubits: 36, shots: 1024
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: 2OYpoqQcVZyDU6P9, name: G2_7_mps.cpu_chi128, device: mps.cpu, run status: RUNNING, created on: 2026-10-24 19:02:15 UTC, estimated runtime: 7230100 ms, allowed runtime: 15960200 ms, estimated cost: $3.02, num qubits: 36, shots: 1024
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: CtJYBVzaADI2yef3, name: G2_9_mps.cpu_chi128, device: mps.cpu, run status: RUNNING, created on: 2026-10-24 19:02:17 UTC, estimated runtime: 7230100 ms, allowed runtime: 15960200 ms, estimated cost: $3.02, num qubits: 36, shots: 1024
+       Duke_G2_5 = +0.624471   [2/36, 118s, job 110917ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: 5YJFyLx0QZ5rzags, name: G2_10_mps.cpu_chi128, device: mps.cpu, run status: PENDING, created on: 2026-10-24 19:04:08 UTC, estimated runtime: 7230100 ms, allowed runtime: 15960200 ms, estimated cost: $3.02, num qubits: 36, shots: 1024
+       Duke_G2_6 = +0.400741   [3/36, 131s, job 120934ms $0.00, run total $0.00]
+       Duke_G2_7 = +0.417345   [4/36, 131s, job 120412ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: VaGm6XEQE51qGkst, name: G2_11_mps.cpu_chi128, device: mps.cpu, run status: PENDING, created on: 2026-10-24 19:04:23 UTC, estimated runtime: 7230100 ms, allowed runtime: 15960200 ms, estimated cost: $3.02, num qubits: 36, shots: 1024
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: ZZYCSqvKebACA5xR, name: G2_27_mps.cpu_chi128, device: mps.cpu, run status: PENDING, created on: 2026-10-24 19:04:25 UTC, estimated runtime: 7230100 ms, allowed runtime: 15960200 ms, estimated cost: $3.02, num qubits: 36, shots: 1024
+       Duke_G2_9 = +0.108355   [5/36, 142s, job 128275ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: hIfmIq8FMJW2MCNj, name: G2_28_mps.cpu_chi128, device: mps.cpu, run status: PENDING, created on: 2026-10-24 19:04:33 UTC, estimated runtime: 7230100 ms, allowed runtime: 15960200 ms, estimated cost: $3.02, num qubits: 36, shots: 1024
+       Duke_G2_4 = +0.730728   [6/36, 166s, job 119393ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: Vsd8eqVkiE4ayX8d, name: G2_29_mps.cpu_chi128, device: mps.cpu, run status: PENDING, created on: 2026-10-24 19:05:08 UTC, estimated runtime: 7230100 ms, allowed runtime: 15960200 ms, estimated cost: $3.02, num qubits: 36, shots: 1024
+      Duke_G2_10 = +0.103152   [7/36, 223s, job 94884ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: RsF2GSuVreJKsT0H, name: G2_30_mps.cpu_chi128, device: mps.cpu, run status: PENDING, created on: 2026-10-24 19:05:54 UTC, estimated runtime: 7230100 ms, allowed runtime: 15960200 ms, estimated cost: $3.02, num qubits: 36, shots: 1024
+      Duke_G2_27 = +0.055459   [8/36, 256s, job 103697ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: WLghOUpSFdFGAtA0, name: G2_31_mps.cpu_chi128, device: mps.cpu, run status: PENDING, created on: 2026-10-24 19:06:29 UTC, estimated runtime: 7230100 ms, allowed runtime: 15960200 ms, estimated cost: $3.02, num qubits: 36, shots: 1024
+      Duke_G2_28 = -0.123518   [9/36, 262s, job 100983ms $0.00, run total $0.00]
+      Duke_G2_11 = +0.097836   [10/36, 275s, job 131578ms $0.00, run total $0.00]
+      Duke_G2_29 = -0.023178   [11/36, 335s, job 125339ms $0.00, run total $0.00]
+      Duke_G2_30 = +0.310458   [12/36, 338s, job 89704ms $0.00, run total $0.00]
+      Duke_G2_31 = +0.283310   [13/36, 382s, job 111900ms $0.00, run total $0.00]
+13/36 done; no CSV yet
