@@ -1,0 +1,6 @@
+[BQ-PYTHON-SDK][WARNING] - Beta version 0.19.0b1 of BlueQubit Python SDK is being used.
+G3: 36 qubits | info: CircuitInfo(circuit_id='Duke_G3_0', num_qubits=36, count_ops={'cz': 2872, 'u3': 5732, 'x': 2, 'z': 1}, depth_1q=199, depth_2q=192)
+tag=pauli-path_th0.0001  done=0  pending=0  new=1
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: 1rrjOvSKTs59IsF7, name: G3_14_pauli-path_th0.0001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:52:38 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 36
+      Duke_G3_14 = +0.000000   [1/36, 230s, job 205175ms $0.00, run total $0.00]
+1/36 done; no CSV yet

@@ -47,12 +47,17 @@ def main():
     ap.add_argument("--level", type=int, help="pauli_path_circuit_transpilation_level 0-3")
     ap.add_argument("--weight", type=int, help="pauli_path_weight_cutoff (pauli-path.gpu only; not in the docs)")
     ap.add_argument("--force-run", action="store_true", help="mps only: bypass server-side runtime limits")
+    ap.add_argument("--shots", type=int, help="samples to draw (server default 1024 for mps; we only need the expectation)")
     ap.add_argument("--tag", help="name for this run (default built from settings)")
     ap.add_argument("--qubits", help="only these qubits, e.g. 0,5,9")
     ap.add_argument("--limit", type=int, help="only the first N qubits (for cost tests)")
     ap.add_argument("--batch", type=int, default=5, help="jobs in flight at once (hackathon limit: 5 running per user)")
+    ap.add_argument("--wait-funds", action="store_true",
+                    help="on NOT_ENOUGH_FUNDS at submit, wait and retry (another run is holding the balance)")
     ap.add_argument("--budget", type=float, default=1.0,
                     help="stop submitting once this run's ACTUAL charges pass this many dollars")
+    ap.add_argument("--max-minutes", type=float,
+                    help="cancel any job still running after this many minutes (use with --force-run on paid devices)")
     a = ap.parse_args()
 
     bq = bluequbit.init(execution_mode="cloud")  # hidden circuits only run in the cloud; Hybrid machines default to local
@@ -104,25 +109,39 @@ def main():
     print(f"tag={tag}  done={len(cache['values'])}  pending={len(cache['pending'])}  new={len(todo)}")
 
     t0 = time.time()
+    started = {}  # cid -> when this process submitted (or re-attached to) its job
     while todo or cache["pending"]:
         # top up in-flight jobs
         if todo and cache.get("cost", 0.0) > a.budget:
             print(f"budget ${a.budget:.2f} reached (spent ${cache['cost']:.2f}); "
                   f"not submitting {len(todo)} more. Rerun with a higher --budget to continue.")
             todo = []
+        slots_full = False
         while todo and len(cache["pending"]) < a.batch:
             q = todo.pop(0)
             try:
                 job = bq.run(cid(a.circuit, q), device=a.device, asynchronous=True,
                              pauli_sum=[(z_on(q, n), 1.0)], options=options or None,
-                             job_name=f"{a.circuit}_{q}_{tag}", force_run=a.force_run)
+                             job_name=f"{a.circuit}_{q}_{tag}", force_run=a.force_run,
+                             shots=a.shots)
             except BQJobNotCompleteError as e:
                 # the hackathon rejects a submit outright when 5 jobs are already running
                 # (including jobs from other scripts), so wait for a slot and try again
-                if not any(s in str(e) for s in RETRY_STATES):
-                    raise
+                # with --wait-funds, a refusal because another run is holding the balance also waits
+                funds = a.wait_funds and "NOT_ENOUGH_FUNDS" in str(e)
+                if not funds and "NOT_ENOUGH_FUNDS" in str(e):
+                    raise SystemExit(f"{cid(a.circuit, q)}: {e}")
+                if not funds and not any(s in str(e) for s in RETRY_STATES):
+                    # e.g. FAILED_VALIDATION (threshold too small): skip this qubit, keep the rest going
+                    print(f"  {cid(a.circuit, q)}: rejected: {e}")
+                    continue
                 todo.insert(0, q)
+                if funds:
+                    time.sleep(60)  # each refused submit is a job; don't burn the daily job cap
+                else:
+                    slots_full = True
                 break
+            started[cid(a.circuit, q)] = time.time()
             cache["pending"][cid(a.circuit, q)] = job.job_id
             save_cache(a.circuit, tag, cache)
 
@@ -131,6 +150,12 @@ def main():
         jobs = bq.get(ids) if ids else []
         for job in jobs if isinstance(jobs, list) else [jobs]:
             key = next(k for k, v in cache["pending"].items() if v == job.job_id)
+            if job.ok or job.run_status in JOB_NO_RESULT_TERMINAL_STATES:
+                # per-job record for NOTES.md: how long it ran, what it cost, how it ended
+                cache.setdefault("metrics", {})[key] = {
+                    "job_id": job.job_id, "status": job.run_status,
+                    "run_time_ms": job.run_time_ms, "queue_time_ms": job.queue_time_ms,
+                    "cost": job.cost, "error": job.error_message}
             if job.ok:
                 cache["values"][key] = float(job.expectation_value)
                 del cache["pending"][key]
@@ -139,7 +164,8 @@ def main():
                 print(f"  {key:>14} = {job.expectation_value:+.6f}   "
                       f"[{len(cache['values'])}/{n}, {time.time() - t0:.0f}s, "
                       f"job {job.run_time_ms}ms ${job.cost or 0:.2f}, run total ${cache['cost']:.2f}]")
-            elif job.run_status in RETRY_STATES:
+            elif job.run_status in RETRY_STATES or (
+                    a.wait_funds and job.run_status == "NOT_ENOUGH_FUNDS"):
                 del cache["pending"][key]
                 todo.append(int(key.rsplit("_", 1)[1]))
                 print(f"  {key}: {job.run_status}, will retry")
@@ -149,8 +175,15 @@ def main():
                 print(f"  {key}: {job.run_status} {job.error_message}")
                 if job.run_status == "NOT_ENOUGH_FUNDS":
                     raise SystemExit("out of credits")
+            elif a.max_minutes and time.time() - started.setdefault(key, time.time()) > 60 * a.max_minutes:
+                # paid devices bill by runtime, so a job that runs away costs real money
+                bq.cancel(job.job_id)
+                del cache["pending"][key]
+                print(f"  {key}: cancelled after {a.max_minutes} min")
         save_cache(a.circuit, tag, cache)
-        if cache["pending"]:
+        if slots_full:
+            time.sleep(20)  # all 5 account slots busy (maybe other scripts): don't hammer the server
+        elif cache["pending"]:
             time.sleep(3)
 
     if len(cache["values"]) == n:

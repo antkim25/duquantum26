@@ -1,0 +1,339 @@
+{
+ "meta": {
+  "device": "mps.cpu",
+  "options": {
+   "mps_bond_dimension": 256
+  },
+  "n": 36
+ },
+ "values": {
+  "Duke_G2_8": -0.007824958758141603,
+  "Duke_G2_0": 0.9913355692134247,
+  "Duke_G2_1": 0.9809161032568425,
+  "Duke_G2_4": 0.600666582716975,
+  "Duke_G2_5": 0.47578706858884645,
+  "Duke_G2_6": 0.22724108110403596,
+  "Duke_G2_7": 0.24637340029822954,
+  "Duke_G2_9": 0.006142881601851774,
+  "Duke_G2_10": 0.03521115836699886,
+  "Duke_G2_11": 0.024761460449557834,
+  "Duke_G2_27": -0.008528583205414287,
+  "Duke_G2_28": -0.18113741357756244,
+  "Duke_G2_29": -0.08964492117690852,
+  "Duke_G2_30": 0.19048001212819027,
+  "Duke_G2_31": 0.15416309113208274,
+  "Duke_G2_2": 0.8540493001985423,
+  "Duke_G2_3": 0.9077338912356341,
+  "Duke_G2_12": -0.002869647415657202,
+  "Duke_G2_13": 0.008968461992180439,
+  "Duke_G2_14": 0.005153268190143392,
+  "Duke_G2_15": -0.00024943205462120736,
+  "Duke_G2_16": -0.0003633411012067249,
+  "Duke_G2_17": -0.002133601628996149,
+  "Duke_G2_18": -0.002893288488440428,
+  "Duke_G2_19": -0.0008871374985403138,
+  "Duke_G2_20": 0.0018991248587785544,
+  "Duke_G2_21": -0.001026420742286311,
+  "Duke_G2_22": 0.002524716644929629,
+  "Duke_G2_23": 0.005685227187371384,
+  "Duke_G2_24": 0.0019577077885056496,
+  "Duke_G2_25": -1.9536850344048787e-05,
+  "Duke_G2_26": 0.004132008247639511,
+  "Duke_G2_32": 0.8035937492327476,
+  "Duke_G2_33": 0.7197586951867767,
+  "Duke_G2_34": 0.9901828630658023,
+  "Duke_G2_35": 0.9887499457087382
+ },
+ "pending": {},
+ "metrics": {
+  "Duke_G2_8": {
+   "job_id": "gWvRWq5TXbkD5oNO",
+   "status": "COMPLETED",
+   "run_time_ms": 134879,
+   "queue_time_ms": 445,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_0": {
+   "job_id": "j3p93seDTGd5OARu",
+   "status": "COMPLETED",
+   "run_time_ms": 93033,
+   "queue_time_ms": 451,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_1": {
+   "job_id": "hYQqxlqYLPheurnh",
+   "status": "COMPLETED",
+   "run_time_ms": 94488,
+   "queue_time_ms": 424,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_4": {
+   "job_id": "2TamK682ubmrY1Uk",
+   "status": "COMPLETED",
+   "run_time_ms": 117769,
+   "queue_time_ms": 7141,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_5": {
+   "job_id": "QOT7TXfrbhqGlKuJ",
+   "status": "COMPLETED",
+   "run_time_ms": 132317,
+   "queue_time_ms": 470,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_6": {
+   "job_id": "PVRbrjvTctaPsCtR",
+   "status": "COMPLETED",
+   "run_time_ms": 130040,
+   "queue_time_ms": 434,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_7": {
+   "job_id": "XNoXp2aHoAqNSsUp",
+   "status": "COMPLETED",
+   "run_time_ms": 134652,
+   "queue_time_ms": 452,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_9": {
+   "job_id": "4cZeiiOVkj47NuNw",
+   "status": "COMPLETED",
+   "run_time_ms": 145721,
+   "queue_time_ms": 618,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_10": {
+   "job_id": "enzq5FKhuCCkLiGK",
+   "status": "COMPLETED",
+   "run_time_ms": 153550,
+   "queue_time_ms": 441,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_11": {
+   "job_id": "X5HmRUI8pJJIlw0g",
+   "status": "COMPLETED",
+   "run_time_ms": 140740,
+   "queue_time_ms": 449,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_27": {
+   "job_id": "mAb93myR69ufMeds",
+   "status": "COMPLETED",
+   "run_time_ms": 58686,
+   "queue_time_ms": 440,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_28": {
+   "job_id": "iQ2udbnfycPYoV9B",
+   "status": "COMPLETED",
+   "run_time_ms": 139812,
+   "queue_time_ms": 438,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_29": {
+   "job_id": "Wy1FwbO0L6F5FKDt",
+   "status": "COMPLETED",
+   "run_time_ms": 129279,
+   "queue_time_ms": 476,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_30": {
+   "job_id": "rdTlcFEz48wVCRU8",
+   "status": "COMPLETED",
+   "run_time_ms": 115257,
+   "queue_time_ms": 627,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_31": {
+   "job_id": "tRANfmPXrSJhEscW",
+   "status": "COMPLETED",
+   "run_time_ms": 113920,
+   "queue_time_ms": 453,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_2": {
+   "job_id": "UdCTers7eOvdonKi",
+   "status": "COMPLETED",
+   "run_time_ms": 101823,
+   "queue_time_ms": 457,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_3": {
+   "job_id": "Y0SFaJlMQxvckKJl",
+   "status": "COMPLETED",
+   "run_time_ms": 103593,
+   "queue_time_ms": 457,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_12": {
+   "job_id": "Cbiginp2lLUAx1Nu",
+   "status": "COMPLETED",
+   "run_time_ms": 168597,
+   "queue_time_ms": 8370,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_13": {
+   "job_id": "qt2sMTjl1krdgjlw",
+   "status": "COMPLETED",
+   "run_time_ms": 149220,
+   "queue_time_ms": 426,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_14": {
+   "job_id": "K5BDR6cV5nOVztuQ",
+   "status": "COMPLETED",
+   "run_time_ms": 148058,
+   "queue_time_ms": 564,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_15": {
+   "job_id": "aPJPGA6oJVHKl7Mt",
+   "status": "COMPLETED",
+   "run_time_ms": 152091,
+   "queue_time_ms": 511,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_16": {
+   "job_id": "uw65tJoqaWlMBtwg",
+   "status": "COMPLETED",
+   "run_time_ms": 156801,
+   "queue_time_ms": 438,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_17": {
+   "job_id": "iev2toZYMNtDsXZ0",
+   "status": "COMPLETED",
+   "run_time_ms": 139320,
+   "queue_time_ms": 434,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_18": {
+   "job_id": "aH0IZaCfaEFQo428",
+   "status": "COMPLETED",
+   "run_time_ms": 137907,
+   "queue_time_ms": 438,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_19": {
+   "job_id": "WCSS20ZtPQiIHGru",
+   "status": "COMPLETED",
+   "run_time_ms": 173411,
+   "queue_time_ms": 6126,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_20": {
+   "job_id": "f8aDaNgME8T1V9B4",
+   "status": "COMPLETED",
+   "run_time_ms": 163838,
+   "queue_time_ms": 458,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_21": {
+   "job_id": "Ypnp7538yTkOtvue",
+   "status": "COMPLETED",
+   "run_time_ms": 164350,
+   "queue_time_ms": 460,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_22": {
+   "job_id": "ztab0Jn8qJtIt7ub",
+   "status": "COMPLETED",
+   "run_time_ms": 152388,
+   "queue_time_ms": 7959,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_23": {
+   "job_id": "U0OdYKX28OaZgNSG",
+   "status": "COMPLETED",
+   "run_time_ms": 148031,
+   "queue_time_ms": 464,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_24": {
+   "job_id": "qZ39qN2IPzbWf7fW",
+   "status": "COMPLETED",
+   "run_time_ms": 142899,
+   "queue_time_ms": 933,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_25": {
+   "job_id": "IFF9je1jQkGSsWOm",
+   "status": "COMPLETED",
+   "run_time_ms": 145366,
+   "queue_time_ms": 442,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_26": {
+   "job_id": "bt0tNlNQiMYozJOX",
+   "status": "COMPLETED",
+   "run_time_ms": 150967,
+   "queue_time_ms": 429,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_32": {
+   "job_id": "WRiA5HdV9WDiZPeL",
+   "status": "COMPLETED",
+   "run_time_ms": 90646,
+   "queue_time_ms": 436,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_33": {
+   "job_id": "t4nbOqn8LrFJEOxH",
+   "status": "COMPLETED",
+   "run_time_ms": 113624,
+   "queue_time_ms": 462,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_34": {
+   "job_id": "LrIa6sWS1FP3LJzt",
+   "status": "COMPLETED",
+   "run_time_ms": 106518,
+   "queue_time_ms": 450,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G2_35": {
+   "job_id": "B2wTxuqceFFhKnes",
+   "status": "COMPLETED",
+   "run_time_ms": 106401,
+   "queue_time_ms": 445,
+   "cost": 0.0,
+   "error": null
+  }
+ },
+ "cost": 0.0
+}
