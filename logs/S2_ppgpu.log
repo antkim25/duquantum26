@@ -1,0 +1,11 @@
+[BQ-PYTHON-SDK][WARNING] - Beta version 0.19.0b1 of BlueQubit Python SDK is being used.
+S2: 16 qubits | info: CircuitInfo(circuit_id='Duke_S2_0', num_qubits=16, count_ops={'cz': 1080, 'u3': 2224, 'x': 2, 'z': 1}, depth_1q=149, depth_2q=144)
+tag=pauli-path.gpu_th2e-05  done=0  pending=0  new=8
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: FFz4AekSCEETjsIG, name: S2_10_pauli-path.gpu_th2e-05, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-24 21:50:33 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 16
+      Duke_S2_10 = +0.495245   [1/16, 124s, job 11253ms $0.20, run total $0.20]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: gMGZ7aANZp1NcxhL, name: S2_0_pauli-path.gpu_th2e-05, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-24 21:50:52 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 16
+       Duke_S2_0 = -0.045146   [2/16, 139s, job 6922ms $0.20, run total $0.40]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: QQMS3ctLPVmPm2k2, name: S2_12_pauli-path.gpu_th2e-05, device: pauli-path.gpu, run status: PENDING, created on: 2026-10-24 21:55:42 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 16
+      Duke_S2_12 = +0.930053   [3/16, 497s, job 7247ms $0.20, run total $0.60]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: Trezjete9iw8HfQH, name: S2_4_pauli-path.gpu_th2e-05, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-24 21:57:04 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 16
+       Duke_S2_4 = -0.043468   [4/16, 582s, job 13563ms $0.20, run total $0.80]

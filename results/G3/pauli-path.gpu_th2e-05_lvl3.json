@@ -1,0 +1,25 @@
+{
+ "meta": {
+  "device": "pauli-path.gpu",
+  "options": {
+   "pauli_path_truncation_threshold": 2e-05,
+   "pauli_path_circuit_transpilation_level": 3
+  },
+  "n": 36
+ },
+ "values": {
+  "Duke_G3_0": -0.19920453709541625
+ },
+ "pending": {},
+ "metrics": {
+  "Duke_G3_0": {
+   "job_id": "qvkSvylblbGadI71",
+   "status": "COMPLETED",
+   "run_time_ms": 27828,
+   "queue_time_ms": 282,
+   "cost": 0.2,
+   "error": null
+  }
+ },
+ "cost": 0.2
+}

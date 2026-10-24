@@ -1,0 +1,12 @@
+{
+ "meta": {
+  "device": "pauli-path.gpu",
+  "options": {
+   "pauli_path_truncation_threshold": 1e-05,
+   "pauli_path_weight_cutoff": 10
+  },
+  "n": 16
+ },
+ "values": {},
+ "pending": {}
+}

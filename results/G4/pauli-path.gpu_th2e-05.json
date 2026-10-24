@@ -1,0 +1,42 @@
+{
+ "meta": {
+  "device": "pauli-path.gpu",
+  "options": {
+   "pauli_path_truncation_threshold": 2e-05
+  },
+  "n": 38
+ },
+ "values": {
+  "Duke_G4_4": 0.0,
+  "Duke_G4_22": 0.0,
+  "Duke_G4_36": -0.011527136427363348
+ },
+ "pending": {},
+ "metrics": {
+  "Duke_G4_4": {
+   "job_id": "x6PLGiNLQkrioiB4",
+   "status": "COMPLETED",
+   "run_time_ms": 20289,
+   "queue_time_ms": 485,
+   "cost": 0.2,
+   "error": null
+  },
+  "Duke_G4_22": {
+   "job_id": "W19AWnm8F65W7AWR",
+   "status": "COMPLETED",
+   "run_time_ms": 20704,
+   "queue_time_ms": 244,
+   "cost": 0.2,
+   "error": null
+  },
+  "Duke_G4_36": {
+   "job_id": "Y33eab2N4Aos9EO8",
+   "status": "COMPLETED",
+   "run_time_ms": 21292,
+   "queue_time_ms": 361,
+   "cost": 0.2,
+   "error": null
+  }
+ },
+ "cost": 0.6000000000000001
+}

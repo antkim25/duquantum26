@@ -1,0 +1,45 @@
+{
+ "meta": {
+  "device": "mps.gpu",
+  "options": {
+   "mps_bond_dimension": 512
+  },
+  "n": 30
+ },
+ "values": {
+  "Duke_S3_17": -0.8729983759373778,
+  "Duke_S3_29": 0.9068340735844638,
+  "Duke_S3_27": 0.09645084948080224,
+  "Duke_S3_12": -0.1134070181094494
+ },
+ "pending": {
+  "Duke_S3_9": "36U9NWtApNs6q4cF"
+ },
+ "metrics": {
+  "Duke_S3_29": {
+   "job_id": "MdV2ZaafarR4ER1h",
+   "status": "COMPLETED",
+   "run_time_ms": 267139,
+   "queue_time_ms": 12323,
+   "cost": 0.3,
+   "error": null
+  },
+  "Duke_S3_27": {
+   "job_id": "ELJF2svTi7m3t786",
+   "status": "COMPLETED",
+   "run_time_ms": 276394,
+   "queue_time_ms": 244,
+   "cost": 0.31,
+   "error": null
+  },
+  "Duke_S3_12": {
+   "job_id": "Lq89AnFeHU1CRy5c",
+   "status": "COMPLETED",
+   "run_time_ms": 305731,
+   "queue_time_ms": 21139,
+   "cost": 0.34,
+   "error": null
+  }
+ },
+ "cost": 0.95
+}

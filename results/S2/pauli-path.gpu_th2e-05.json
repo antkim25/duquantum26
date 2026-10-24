@@ -1,0 +1,51 @@
+{
+ "meta": {
+  "device": "pauli-path.gpu",
+  "options": {
+   "pauli_path_truncation_threshold": 2e-05
+  },
+  "n": 16
+ },
+ "values": {
+  "Duke_S2_10": 0.49524474832900667,
+  "Duke_S2_0": -0.04514569090471904,
+  "Duke_S2_12": 0.930053330848022,
+  "Duke_S2_4": -0.04346798955517702
+ },
+ "pending": {},
+ "metrics": {
+  "Duke_S2_10": {
+   "job_id": "FFz4AekSCEETjsIG",
+   "status": "COMPLETED",
+   "run_time_ms": 11253,
+   "queue_time_ms": 243,
+   "cost": 0.2,
+   "error": null
+  },
+  "Duke_S2_0": {
+   "job_id": "gMGZ7aANZp1NcxhL",
+   "status": "COMPLETED",
+   "run_time_ms": 6922,
+   "queue_time_ms": 244,
+   "cost": 0.2,
+   "error": null
+  },
+  "Duke_S2_12": {
+   "job_id": "QQMS3ctLPVmPm2k2",
+   "status": "COMPLETED",
+   "run_time_ms": 7247,
+   "queue_time_ms": 69619,
+   "cost": 0.2,
+   "error": null
+  },
+  "Duke_S2_4": {
+   "job_id": "Trezjete9iw8HfQH",
+   "status": "COMPLETED",
+   "run_time_ms": 13563,
+   "queue_time_ms": 63949,
+   "cost": 0.2,
+   "error": null
+  }
+ },
+ "cost": 0.8
+}

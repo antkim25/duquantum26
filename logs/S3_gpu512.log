@@ -1,0 +1,10 @@
+[BQ-PYTHON-SDK][WARNING] - Beta version 0.19.0b1 of BlueQubit Python SDK is being used.
+S3: 30 qubits | info: CircuitInfo(circuit_id='Duke_S3_0', num_qubits=30, count_ops={'cz': 1568, 'u3': 3160, 'x': 2, 'z': 1}, depth_1q=135, depth_2q=128)
+tag=mps.gpu_chi512  done=1  pending=0  new=4
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: MdV2ZaafarR4ER1h, name: S3_29_mps.gpu_chi512, device: mps.gpu, run status: PENDING, created on: 2026-10-24 21:35:45 UTC, estimated runtime: 9346200 ms, allowed runtime: 2310092 ms, estimated cost: $10.39, num qubits: 30, shots: 1024
+      Duke_S3_29 = +0.906834   [2/30, 282s, job 267139ms $0.30, run total $0.30]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: ELJF2svTi7m3t786, name: S3_27_mps.gpu_chi512, device: mps.gpu, run status: RUNNING, created on: 2026-10-24 21:40:26 UTC, estimated runtime: 9346200 ms, allowed runtime: 2080333 ms, estimated cost: $10.39, num qubits: 30, shots: 1024
+      Duke_S3_27 = +0.096451   [3/30, 562s, job 276394ms $0.31, run total $0.61]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: Lq89AnFeHU1CRy5c, name: S3_12_mps.gpu_chi512, device: mps.gpu, run status: RUNNING, created on: 2026-10-24 21:45:06 UTC, estimated runtime: 9346200 ms, allowed runtime: 2032996 ms, estimated cost: $10.39, num qubits: 30, shots: 1024
+      Duke_S3_12 = -0.113407   [4/30, 892s, job 305731ms $0.34, run total $0.95]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: 36U9NWtApNs6q4cF, name: S3_9_mps.gpu_chi512, device: mps.gpu, run status: RUNNING, created on: 2026-10-24 21:51:39 UTC, estimated runtime: 9346200 ms, allowed runtime: 1854184 ms, estimated cost: $10.39, num qubits: 30, shots: 1024

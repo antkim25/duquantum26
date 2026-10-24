@@ -1,0 +1,110 @@
+{
+ "meta": {
+  "device": "mps.cpu",
+  "options": {
+   "mps_bond_dimension": 128
+  },
+  "n": 38
+ },
+ "values": {
+  "Duke_G4_36": 0.9679694402185817,
+  "Duke_G4_22": 0.8465920613593787,
+  "Duke_G4_2": -0.0386828443806058,
+  "Duke_G4_13": 0.29265525409421345,
+  "Duke_G4_5": 0.19239369541925136,
+  "Duke_G4_0": 0.05798219969927045,
+  "Duke_G4_18": 0.14272424303489464,
+  "Duke_G4_4": 0.5314238941436031,
+  "Duke_G4_11": 0.5996504551080772,
+  "Duke_G4_10": 0.44281598950214557
+ },
+ "pending": {
+  "Duke_G4_14": "RiY24B07VqRT4diX",
+  "Duke_G4_29": "41BMQM3shnSByWtp",
+  "Duke_G4_1": "U6d73Ynmkrm2dlBb",
+  "Duke_G4_3": "5ZLWai1J3VR1irxz"
+ },
+ "metrics": {
+  "Duke_G4_36": {
+   "job_id": "Jgf3WvYLTTVJOBJT",
+   "status": "COMPLETED",
+   "run_time_ms": 317111,
+   "queue_time_ms": 10441,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G4_22": {
+   "job_id": "JJ66wLXk90H8jHMC",
+   "status": "COMPLETED",
+   "run_time_ms": 340398,
+   "queue_time_ms": 8200,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G4_2": {
+   "job_id": "9cMV2ECSKzqW5r3H",
+   "status": "COMPLETED",
+   "run_time_ms": 421937,
+   "queue_time_ms": 377,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G4_13": {
+   "job_id": "Pfdi5my90YhFNfOs",
+   "status": "COMPLETED",
+   "run_time_ms": 437846,
+   "queue_time_ms": 3555,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G4_5": {
+   "job_id": "U7WofbGGdx4jiGSM",
+   "status": "COMPLETED",
+   "run_time_ms": 397194,
+   "queue_time_ms": 381,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G4_0": {
+   "job_id": "kqjYh4L8I84wXY1Z",
+   "status": "COMPLETED",
+   "run_time_ms": 316417,
+   "queue_time_ms": 390,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G4_18": {
+   "job_id": "vsdEZQYwO3WvAVSA",
+   "status": "COMPLETED",
+   "run_time_ms": 444474,
+   "queue_time_ms": 39065,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G4_4": {
+   "job_id": "GdFQKPFQHH6JZ6W4",
+   "status": "COMPLETED",
+   "run_time_ms": 396853,
+   "queue_time_ms": 384,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G4_11": {
+   "job_id": "OzwoYO8NGl6ExTie",
+   "status": "COMPLETED",
+   "run_time_ms": 305453,
+   "queue_time_ms": 355,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G4_10": {
+   "job_id": "66SLOM89peAJqi0O",
+   "status": "COMPLETED",
+   "run_time_ms": 391227,
+   "queue_time_ms": 418,
+   "cost": 0.0,
+   "error": null
+  }
+ },
+ "cost": 0.0
+}

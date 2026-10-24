@@ -236,3 +236,35 @@ GPU spend so far: 12 jobs x $0.20 = ~$2.40.
 - The git merge of Colin's branch corrupted results/G2/mps.cpu_chi128.json and results/G3/pauli-path_th0.0001.json
   (two versions spliced together). Rebuilt both from the two merge parents; no values lost.
   Lesson: two machines must never write the same tag; give each account its own --tag.
+
+## S3 calibration of MPS at chi 512 on mps.gpu (~5 min, ~$0.31/job; needs --force-run)
+| S3 qubit | exact | chi 64 | chi 512 gpu |
+|---|---|---|---|
+| 17 | -0.812 | +1.000 | -0.873 |
+| 29 | +0.166 | -0.950 | +0.907 |
+| 27 | +0.958 | +0.084 | +0.096 |
+=> MPS is still unreliable on a 2D grid at chi 512 (wrong sign / magnitude on 2 of 3).
+
+## BlueQubit benchmarking paper (arXiv 2607.09882, shared by organizers)
+- PPS error is NON-MONOTONIC in delta: on 127q kicked Ising the error PEAKS near delta ~5e-5 and only recovers below 1e-5.
+  The API's 1e-5 floor is "a software-imposed limit rather than a hardware one"; their PPS-GPU reached 2.9e-6.
+  => Our G3/G4 Pauli-path zeros at 1e-4..1e-5 may be the error peak, not proof the circuits are generic.
+- MPS on a 46q peaked circuit needed chi ~1536 on GPU (~22 h/run) for a correct answer; at intermediate chi,
+  truncation flips signs of local <Z_i> (same as our S3 sign flips).
+- MPS backends are quimb; CPU runs on 2 cores ("small1"). GPU wins only for chi >= ~256.
+| 12 | -0.655 | -0.004 | -0.113 |
+(S3 q9 cancelled: 3 of 4 wrong is enough. MPS ruled out for 2D grids.)
+
+## Pauli-path on GPU, fine thresholds (~18:30) -- the paper's non-monotonic convergence, seen directly
+S2 (generic 16q chain, exact known), pauli-path.gpu:
+| S2 qubit | exact | 1e-4 | 2e-5 |
+|---|---|---|---|
+| 10 | +0.58 | +0.005 | +0.495 |
+| 12 | +1.00 | +0.321 | +0.930 |
+| 0  | ~0    | -0.036 | -0.045 |
+| 4  | ~0    | +0.005 | -0.043 |
+=> 2e-5 is accurate on a generic circuit; 1e-4 kills all but the strongest signal (not a uniform rescaling).
+1e-5 on S2: FAILED_VALIDATION (memory). Weight cutoff 6/10 and transpilation level 0/3 do NOT get past the check:
+the server sets a per-circuit minimum threshold. Each GPU job ~5-20 s, $0.20.
+G4 at 2e-5: q4 0.000, q22 0.000, q36 -0.012. At 1e-5: q0 8e-5, q4 6e-4, q14 6e-5, q11 rejected.
+=> G4 needs a threshold below what the server accepts. Colin's 2e-5..5e-5 rejections were on CPU pauli-path.
