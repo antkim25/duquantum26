@@ -1,0 +1,5 @@
+[BQ-PYTHON-SDK][WARNING] - Beta version 0.19.0b1 of BlueQubit Python SDK is being used.
+  Duke_G3_1: 1e-05 rejected
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: EnFzBgTrXJtlL7Jg, name: G3_1_ppgpu_finest_lvl1, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-24 22:32:14 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 36
+       Duke_G3_1 = +0.071427  at 1.5e-05  [13464ms $0.20, total $1.00]
+  Duke_G3_2: 1e-05 rejected

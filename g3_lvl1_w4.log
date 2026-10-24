@@ -1,0 +1,14 @@
+[BQ-PYTHON-SDK][WARNING] - Beta version 0.19.0b1 of BlueQubit Python SDK is being used.
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: k7IveI7zdwFwjNLh, name: G3_5_ppgpu_finest_lvl1_w4, device: pauli-path.gpu, run status: PENDING, created on: 2026-10-24 22:34:22 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 36
+[BQ-PYTHON-SDK][INFO] - Status changed: Job ID: k7IveI7zdwFwjNLh. From PENDING to RUNNING.
+       Duke_G3_5 = -0.009814  at 1e-05  [17325ms $0.20, total $0.20]
+  Duke_G3_10: 1e-05 rejected
+Traceback (most recent call last):
+  File "/app/data_volume/bluequbit-users/PoKGvDrQxWRY8Vf2Im3rt3mvmig2/duquantum26/pp_finest.py", line 75, in <module>
+    main()
+  File "/app/data_volume/bluequbit-users/PoKGvDrQxWRY8Vf2Im3rt3mvmig2/duquantum26/pp_finest.py", line 52, in main
+    job = bq.run(key, device=a.device, pauli_sum=[(z_on(q, n), 1.0)],
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/libs/.venv/lib/python3.11/site-packages/bluequbit/bluequbit_client.py", line 545, in run
+    raise BQJobNotCompleteError(
+bluequbit.exceptions.BQJobNotCompleteError: Job 84U92mCUOQb6e9bF finished with status: HACKATHON_PARALLEL_JOBS_LIMIT. Hackathon limit: you can run at most 1 GPU job(s) at the same time, and you already have 1 pending or running. Wait for one to finish, then resubmit.

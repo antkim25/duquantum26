@@ -1,0 +1,27 @@
+[BQ-PYTHON-SDK][WARNING] - Beta version 0.19.0b1 of BlueQubit Python SDK is being used.
+  Duke_G3_4: 1e-05 rejected
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: kX7OUvTZ7WYPoEcH, name: G3_4_ppgpu_finest_lvl1_w3, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-24 22:34:54 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 36
+       Duke_G3_4 = -0.084995  at 1.5e-05  [15897ms $0.20, total $0.20]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: QJOOxVWxTRAUpxV0, name: G3_9_ppgpu_finest_lvl1_w3, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-24 22:35:45 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 36
+       Duke_G3_9 = +0.014471  at 1e-05  [25541ms $0.20, total $0.40]
+  Duke_G3_13: 1e-05 rejected
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: VSctprhelIUEomTa, name: G3_13_ppgpu_finest_lvl1_w3, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-24 22:37:43 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 36
+      Duke_G3_13 = +0.174116  at 1.5e-05  [16811ms $0.20, total $0.60]
+  Duke_G3_18: 1e-05 rejected
+  Duke_G3_18: 1.5e-05 rejected
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: ccRHUJzT4o8Wmuew, name: G3_18_ppgpu_finest_lvl1_w3, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-24 22:40:11 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 36
+      Duke_G3_18 = +0.062203  at 2e-05  [9541ms $0.20, total $0.80]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: wFBrdaBt4yULeewc, name: G3_23_ppgpu_finest_lvl1_w3, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-24 22:41:00 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 36
+      Duke_G3_23 = -0.056512  at 1e-05  [18676ms $0.20, total $1.00]
+  Duke_G3_27: 1e-05 rejected
+  Duke_G3_27: 1.5e-05 rejected
+  Duke_G3_27: 2e-05 rejected
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: oSPkr76w3dhVGtFA, name: G3_27_ppgpu_finest_lvl1_w3, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-24 22:43:48 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 36
+      Duke_G3_27 = -0.000774  at 3e-05  [13802ms $0.20, total $1.20]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: w7eVzAe1W9P00cFG, name: G3_31_ppgpu_finest_lvl1_w3, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-24 22:44:42 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 36
+      Duke_G3_31 = -0.184176  at 1e-05  [15949ms $0.20, total $1.40]
+  Duke_G3_35: 1e-05 rejected
+  Duke_G3_35: 1.5e-05 rejected
+  Duke_G3_35: 2e-05 rejected
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: TEkgKMQxPFa8scGg, name: G3_35_ppgpu_finest_lvl1_w3, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-24 22:48:07 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 36
+      Duke_G3_35 = -0.124428  at 3e-05  [7230ms $0.20, total $1.60]

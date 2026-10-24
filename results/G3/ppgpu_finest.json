@@ -1,0 +1,28 @@
+{
+ "meta": {
+  "device": "pauli-path.gpu",
+  "n": 36,
+  "ladder": [
+   1e-05,
+   1.5e-05,
+   2e-05,
+   3e-05,
+   5e-05,
+   0.0001
+  ]
+ },
+ "values": {
+  "Duke_G3_14": 0.0,
+  "Duke_G3_8": 0.0,
+  "Duke_G3_20": 0.0,
+  "Duke_G3_0": 0.004525830739101358
+ },
+ "pending": {},
+ "threshold": {
+  "Duke_G3_14": 5e-05,
+  "Duke_G3_8": 2e-05,
+  "Duke_G3_20": 3e-05,
+  "Duke_G3_0": 1.5e-05
+ },
+ "cost": 0.8
+}

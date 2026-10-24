@@ -1,0 +1,16 @@
+{
+ "meta": {
+  "device": "pauli-path.gpu",
+  "options": {
+   "pauli_path_truncation_threshold": 2e-05
+  },
+  "n": 30
+ },
+ "values": {
+  "Duke_S3_2": 0.21225800842824777
+ },
+ "pending": {
+  "Duke_S3_8": "hQhONtUmjLcvmjK0"
+ },
+ "cost": 0.2
+}

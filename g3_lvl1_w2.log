@@ -1,0 +1,11 @@
+[BQ-PYTHON-SDK][WARNING] - Beta version 0.19.0b1 of BlueQubit Python SDK is being used.
+  Duke_G3_3: 1e-05 rejected
+Traceback (most recent call last):
+  File "/app/data_volume/bluequbit-users/PoKGvDrQxWRY8Vf2Im3rt3mvmig2/duquantum26/pp_finest.py", line 75, in <module>
+    main()
+  File "/app/data_volume/bluequbit-users/PoKGvDrQxWRY8Vf2Im3rt3mvmig2/duquantum26/pp_finest.py", line 52, in main
+    job = bq.run(key, device=a.device, pauli_sum=[(z_on(q, n), 1.0)],
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/libs/.venv/lib/python3.11/site-packages/bluequbit/bluequbit_client.py", line 545, in run
+    raise BQJobNotCompleteError(
+bluequbit.exceptions.BQJobNotCompleteError: Job btRfCgKGeX1kMYuS finished with status: HACKATHON_PARALLEL_JOBS_LIMIT. Hackathon limit: you can run at most 1 GPU job(s) at the same time, and you already have 1 pending or running. Wait for one to finish, then resubmit.
