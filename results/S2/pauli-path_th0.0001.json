@@ -6,8 +6,9 @@
   },
   "n": 16
  },
- "values": {},
- "pending": {
-  "Duke_S2_10": "pFXWigLABhbDIskl"
- }
+ "values": {
+  "Duke_S2_10": 0.005007355968858591
+ },
+ "pending": {},
+ "cost": 0.0
 }

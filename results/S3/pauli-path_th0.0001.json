@@ -1,0 +1,21 @@
+{
+ "meta": {
+  "device": "pauli-path",
+  "options": {
+   "pauli_path_truncation_threshold": 0.0001
+  },
+  "n": 30
+ },
+ "values": {
+  "Duke_S3_0": 0.14399056350520673,
+  "Duke_S3_1": -0.5380935327636384,
+  "Duke_S3_3": -0.22404670121593634,
+  "Duke_S3_4": 0.1067083813430724,
+  "Duke_S3_5": -0.13999408490789028
+ },
+ "pending": {
+  "Duke_S3_2": "VH6tgU6Z0nbgQi2c",
+  "Duke_S3_6": "9XvntVm04FHj7R92"
+ },
+ "cost": 0.0
+}

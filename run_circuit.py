@@ -14,6 +14,7 @@ import argparse
 import time
 
 import bluequbit
+from bluequbit.exceptions import BQJobNotCompleteError
 from bluequbit.job_metadata_constants import JOB_NO_RESULT_TERMINAL_STATES
 
 from common import cid, load_cache, save_cache, values_in_order, write_csv, z_on
@@ -45,7 +46,9 @@ def main():
     ap.add_argument("--tag", help="name for this run (default built from settings)")
     ap.add_argument("--qubits", help="only these qubits, e.g. 0,5,9")
     ap.add_argument("--limit", type=int, help="only the first N qubits (for cost tests)")
-    ap.add_argument("--batch", type=int, default=10, help="jobs in flight at once (BlueQubit queues max 10 cpu jobs)")
+    ap.add_argument("--batch", type=int, default=5, help="jobs in flight at once (hackathon limit: 5 running per user)")
+    ap.add_argument("--budget", type=float, default=1.0,
+                    help="stop submitting once this run's ACTUAL charges pass this many dollars")
     a = ap.parse_args()
 
     bq = bluequbit.init()
@@ -79,11 +82,23 @@ def main():
     t0 = time.time()
     while todo or cache["pending"]:
         # top up in-flight jobs
+        if todo and cache.get("cost", 0.0) > a.budget:
+            print(f"budget ${a.budget:.2f} reached (spent ${cache['cost']:.2f}); "
+                  f"not submitting {len(todo)} more. Rerun with a higher --budget to continue.")
+            todo = []
         while todo and len(cache["pending"]) < a.batch:
             q = todo.pop(0)
-            job = bq.run(cid(a.circuit, q), device=a.device, asynchronous=True,
-                         pauli_sum=[(z_on(q, n), 1.0)], options=options or None,
-                         job_name=f"{a.circuit}_{q}_{tag}")
+            try:
+                job = bq.run(cid(a.circuit, q), device=a.device, asynchronous=True,
+                             pauli_sum=[(z_on(q, n), 1.0)], options=options or None,
+                             job_name=f"{a.circuit}_{q}_{tag}")
+            except BQJobNotCompleteError as e:
+                # the hackathon rejects a submit outright when 5 jobs are already running
+                # (including jobs from other scripts), so wait for a slot and try again
+                if not any(s in str(e) for s in RETRY_STATES):
+                    raise
+                todo.insert(0, q)
+                break
             cache["pending"][cid(a.circuit, q)] = job.job_id
             save_cache(a.circuit, tag, cache)
 
