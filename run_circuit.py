@@ -56,6 +56,8 @@ def main():
                     help="on NOT_ENOUGH_FUNDS at submit, wait and retry (another run is holding the balance)")
     ap.add_argument("--budget", type=float, default=1.0,
                     help="stop submitting once this run's ACTUAL charges pass this many dollars")
+    ap.add_argument("--max-minutes", type=float,
+                    help="cancel any job still running after this many minutes (use with --force-run on paid devices)")
     a = ap.parse_args()
 
     bq = bluequbit.init(execution_mode="cloud")  # hidden circuits only run in the cloud; Hybrid machines default to local
@@ -107,6 +109,7 @@ def main():
     print(f"tag={tag}  done={len(cache['values'])}  pending={len(cache['pending'])}  new={len(todo)}")
 
     t0 = time.time()
+    started = {}  # cid -> when this process submitted (or re-attached to) its job
     while todo or cache["pending"]:
         # top up in-flight jobs
         if todo and cache.get("cost", 0.0) > a.budget:
@@ -126,16 +129,19 @@ def main():
                 # (including jobs from other scripts), so wait for a slot and try again
                 # with --wait-funds, a refusal because another run is holding the balance also waits
                 funds = a.wait_funds and "NOT_ENOUGH_FUNDS" in str(e)
+                if not funds and "NOT_ENOUGH_FUNDS" in str(e):
+                    raise SystemExit(f"{cid(a.circuit, q)}: {e}")
                 if not funds and not any(s in str(e) for s in RETRY_STATES):
-                    raise
+                    # e.g. FAILED_VALIDATION (threshold too small): skip this qubit, keep the rest going
+                    print(f"  {cid(a.circuit, q)}: rejected: {e}")
+                    continue
                 todo.insert(0, q)
-<<<<<<< Updated upstream
                 if funds:
                     time.sleep(60)  # each refused submit is a job; don't burn the daily job cap
-=======
-                slots_full = True
->>>>>>> Stashed changes
+                else:
+                    slots_full = True
                 break
+            started[cid(a.circuit, q)] = time.time()
             cache["pending"][cid(a.circuit, q)] = job.job_id
             save_cache(a.circuit, tag, cache)
 
@@ -169,6 +175,11 @@ def main():
                 print(f"  {key}: {job.run_status} {job.error_message}")
                 if job.run_status == "NOT_ENOUGH_FUNDS":
                     raise SystemExit("out of credits")
+            elif a.max_minutes and time.time() - started.setdefault(key, time.time()) > 60 * a.max_minutes:
+                # paid devices bill by runtime, so a job that runs away costs real money
+                bq.cancel(job.job_id)
+                del cache["pending"][key]
+                print(f"  {key}: cancelled after {a.max_minutes} min")
         save_cache(a.circuit, tag, cache)
         if slots_full:
             time.sleep(20)  # all 5 account slots busy (maybe other scripts): don't hammer the server
