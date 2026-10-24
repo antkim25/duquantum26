@@ -1,0 +1,14 @@
+{
+ "meta": {
+  "device": "pauli-path",
+  "options": {
+   "pauli_path_truncation_threshold": 0.001
+  },
+  "n": 16
+ },
+ "values": {
+  "Duke_S2_10": 0.0
+ },
+ "pending": {},
+ "cost": 0.0
+}

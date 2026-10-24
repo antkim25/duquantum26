@@ -45,7 +45,7 @@ def main():
     ap.add_argument("--tag", help="name for this run (default built from settings)")
     ap.add_argument("--qubits", help="only these qubits, e.g. 0,5,9")
     ap.add_argument("--limit", type=int, help="only the first N qubits (for cost tests)")
-    ap.add_argument("--batch", type=int, default=20, help="jobs in flight at once")
+    ap.add_argument("--batch", type=int, default=10, help="jobs in flight at once (BlueQubit queues max 10 cpu jobs)")
     a = ap.parse_args()
 
     bq = bluequbit.init()
@@ -95,8 +95,11 @@ def main():
             if job.ok:
                 cache["values"][key] = float(job.expectation_value)
                 del cache["pending"][key]
+                # the "estimated cost" printed at submit is a worst case; this is the real charge
+                cache["cost"] = cache.get("cost", 0.0) + (job.cost or 0.0)
                 print(f"  {key:>14} = {job.expectation_value:+.6f}   "
-                      f"[{len(cache['values'])}/{n}, {time.time() - t0:.0f}s]")
+                      f"[{len(cache['values'])}/{n}, {time.time() - t0:.0f}s, "
+                      f"job {job.run_time_ms}ms ${job.cost or 0:.2f}, run total ${cache['cost']:.2f}]")
             elif job.run_status in RETRY_STATES:
                 del cache["pending"][key]
                 todo.append(int(key.rsplit("_", 1)[1]))
@@ -113,7 +116,7 @@ def main():
 
     if len(cache["values"]) == n:
         out = write_csv(a.circuit, values_in_order(a.circuit, tag, n), f"{a.circuit}_{tag}")
-        print(f"wrote {out}")
+        print(f"wrote {out}   (actual cost of this run: ${cache.get('cost', 0):.2f})")
     else:
         print(f"{len(cache['values'])}/{n} done; no CSV yet")
 

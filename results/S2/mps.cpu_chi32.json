@@ -1,0 +1,17 @@
+{
+ "meta": {
+  "device": "mps.cpu",
+  "options": {
+   "mps_bond_dimension": 32
+  },
+  "n": 16
+ },
+ "values": {},
+ "pending": {
+  "Duke_S2_0": "UfAwqzQYQXag659A",
+  "Duke_S2_1": "voUZqXzPcz6heJOi",
+  "Duke_S2_2": "htfdKKBVTWb8LGHQ",
+  "Duke_S2_3": "VsHvYbpWUFTYV79L",
+  "Duke_S2_4": "WdoH4nro9fv8HFAK"
+ }
+}
