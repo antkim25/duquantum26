@@ -1,0 +1,16 @@
+{
+ "meta": {
+  "device": "pauli-path",
+  "options": {
+   "pauli_path_truncation_threshold": 0.0001
+  },
+  "n": 36
+ },
+ "values": {
+  "Duke_G3_0": -0.014754238770955167
+ },
+ "pending": {
+  "Duke_G3_4": "5MGLCsQEqLFKh8zc"
+ },
+ "cost": 0.0
+}

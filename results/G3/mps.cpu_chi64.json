@@ -1,0 +1,17 @@
+{
+ "meta": {
+  "device": "mps.cpu",
+  "options": {
+   "mps_bond_dimension": 64
+  },
+  "n": 36
+ },
+ "values": {
+  "Duke_G3_0": 0.03204133150133517
+ },
+ "pending": {
+  "Duke_G3_1": "Tdjoz1wA78lUWcPP",
+  "Duke_G3_2": "PhX6gYP7LT0GygGr"
+ },
+ "cost": 0.0
+}

@@ -1,0 +1,32 @@
+nohup: ignoring input
+[BQ-PYTHON-SDK][WARNING] - Beta version 0.19.0b1 of BlueQubit Python SDK is being used.
+[BQ-PYTHON-SDK][INFO] - Using execution mode from environment variable BLUEQUBIT_EXECUTION_MODE: cloud
+S3: 30 qubits | info: CircuitInfo(circuit_id='Duke_S3_0', num_qubits=30, count_ops={'cz': 1568, 'u3': 3160, 'x': 2, 'z': 1}, depth_1q=135, depth_2q=128)
+tag=pauli-path_th0.0001  done=5  pending=2  new=23
+       Duke_S3_2 = +0.000000   [6/30, 0s, job 128708ms $0.00, run total $0.00]
+       Duke_S3_6 = -0.095630   [7/30, 0s, job 80579ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: eQo5cbgGoZaYgVug, name: S3_7_pauli-path_th0.0001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:10:09 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 30
+       Duke_S3_7 = -0.295705   [8/30, 132s, job 125731ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: W1ZNPyoFAVfl0iqF, name: S3_8_pauli-path_th0.0001, device: pauli-path, run status: PENDING, created on: 2026-10-24 18:12:32 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 30
+       Duke_S3_8 = +0.000000   [9/30, 283s, job 130810ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: UTBkpnM8x7rJATWV, name: S3_9_pauli-path_th0.0001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:15:05 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 30
+       Duke_S3_9 = +0.441157   [10/30, 311s, job 8228ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: DkeJBHUMo9w5wE0T, name: S3_10_pauli-path_th0.0001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:15:21 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 30
+      Duke_S3_10 = -0.107824   [11/30, 323s, job 5207ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: gvAAHmjRdwOD05vP, name: S3_11_pauli-path_th0.0001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:16:27 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 30
+      Duke_S3_11 = -0.304577   [12/30, 393s, job 8930ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: uyonWT8ySHW7fDzl, name: S3_12_pauli-path_th0.0001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:16:42 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 30
+      Duke_S3_12 = -0.654448   [13/30, 404s, job 6068ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: WweJoQJJiuuD4xuZ, name: S3_13_pauli-path_th0.0001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:16:58 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 30
+      Duke_S3_13 = -0.016770   [14/30, 439s, job 22708ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: mFK7MqH9wr76Zbae, name: S3_14_pauli-path_th0.0001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:17:29 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 30
+      Duke_S3_14 = +0.000000   [15/30, 572s, job 125754ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: at4NLh0mmuFsvUQQ, name: S3_15_pauli-path_th0.0001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:19:43 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 30
+      Duke_S3_15 = +0.031378   [16/30, 591s, job 10588ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: osS1BLOszh4503yI, name: S3_16_pauli-path_th0.0001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:20:02 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 30
+      Duke_S3_16 = -0.683590   [17/30, 607s, job 6603ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: dFLZtqlIaSiOtDsO, name: S3_17_pauli-path_th0.0001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:20:30 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 30
+      Duke_S3_17 = -0.810215   [18/30, 633s, job 5249ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: vwE8YehJL0QIapI9, name: S3_18_pauli-path_th0.0001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:20:58 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 30
+      Duke_S3_18 = +0.001924   [19/30, 740s, job 84221ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: oOGVgYYs4FUyvCDP, name: S3_19_pauli-path_th0.0001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:22:41 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 30

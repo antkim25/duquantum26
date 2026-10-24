@@ -1,0 +1,40 @@
+nohup: ignoring input
+[BQ-PYTHON-SDK][WARNING] - Beta version 0.19.0b1 of BlueQubit Python SDK is being used.
+[BQ-PYTHON-SDK][INFO] - Using execution mode from environment variable BLUEQUBIT_EXECUTION_MODE: cloud
+G2: 36 qubits | info: CircuitInfo(circuit_id='Duke_G2_0', num_qubits=36, count_ops={'cz': 3780, 'u3': 7704, 'x': 2, 'z': 1}, depth_1q=223, depth_2q=216)
+tag=pauli-path_th0.001  done=0  pending=0  new=4
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: uflg7UpaX5IUqydY, name: G2_0_pauli-path_th0.001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:23:24 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 36
+       Duke_G2_0 = +0.000000   [1/36, 12s, job 6713ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: 617dszvD7kVLixL7, name: G2_4_pauli-path_th0.001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:23:36 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 36
+       Duke_G2_4 = +0.000000   [2/36, 23s, job 6043ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: xTWIGMFW335ErO82, name: G2_8_pauli-path_th0.001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:23:47 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 36
+       Duke_G2_8 = +0.000000   [3/36, 31s, job 5727ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: d7GIYzi7fvBdqCQk, name: G2_12_pauli-path_th0.001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:23:55 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 36
+      Duke_G2_12 = +0.000000   [4/36, 40s, job 5787ms $0.00, run total $0.00]
+4/36 done; no CSV yet
+[BQ-PYTHON-SDK][WARNING] - Beta version 0.19.0b1 of BlueQubit Python SDK is being used.
+[BQ-PYTHON-SDK][INFO] - Using execution mode from environment variable BLUEQUBIT_EXECUTION_MODE: cloud
+G3: 36 qubits | info: CircuitInfo(circuit_id='Duke_G3_0', num_qubits=36, count_ops={'cz': 2872, 'u3': 5732, 'x': 2, 'z': 1}, depth_1q=199, depth_2q=192)
+tag=pauli-path_th0.001  done=0  pending=0  new=4
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: cLugyyNZ1FneFdSq, name: G3_0_pauli-path_th0.001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:24:04 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 36
+       Duke_G3_0 = +0.000000   [1/36, 8s, job 4388ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: ZkCBoLAQXuLPczSD, name: G3_4_pauli-path_th0.001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:24:12 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 36
+       Duke_G3_4 = +0.000000   [2/36, 16s, job 4568ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: DAe04x4Jb1WehFLY, name: G3_8_pauli-path_th0.001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:24:20 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 36
+       Duke_G3_8 = +0.000000   [3/36, 23s, job 4553ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: Kj67lJQHrZktTAcE, name: G3_12_pauli-path_th0.001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:24:27 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 36
+      Duke_G3_12 = +0.000000   [4/36, 44s, job 4572ms $0.00, run total $0.00]
+4/36 done; no CSV yet
+[BQ-PYTHON-SDK][WARNING] - Beta version 0.19.0b1 of BlueQubit Python SDK is being used.
+[BQ-PYTHON-SDK][INFO] - Using execution mode from environment variable BLUEQUBIT_EXECUTION_MODE: cloud
+G4: 38 qubits | info: CircuitInfo(circuit_id='Duke_G4_0', num_qubits=38, count_ops={'cz': 3024, 'u3': 6200, 'x': 2, 'z': 1}, depth_1q=197, depth_2q=192)
+tag=pauli-path_th0.001  done=0  pending=0  new=4
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: LtsEQ6Q4nsbW1NLt, name: G4_0_pauli-path_th0.001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:24:49 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 38
+       Duke_G4_0 = +0.000000   [1/38, 18s, job 13598ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: 1OfUWu0gc6v6RuWn, name: G4_4_pauli-path_th0.001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:25:07 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 38
+       Duke_G4_4 = +0.000000   [2/38, 25s, job 5341ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: 0hNkZzQtjKMqtAe6, name: G4_8_pauli-path_th0.001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:25:15 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 38
+       Duke_G4_8 = +0.000000   [3/38, 33s, job 5029ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: srhQQzPVFBquPXuS, name: G4_12_pauli-path_th0.001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:25:22 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 38
+      Duke_G4_12 = +0.000000   [4/38, 41s, job 5125ms $0.00, run total $0.00]
+4/38 done; no CSV yet
