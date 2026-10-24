@@ -80,3 +80,30 @@ MPS chi 64 vs exact on 5 S3 qubits:
 corr² = 0.53 on these 5. Values are squashed toward 0 (truncation acts like noise, so the echo no longer refocuses),
 but bigger true values still give bigger estimates. Since the score is corr² (scale-free), a squashed but
 correctly ORDERED estimate still earns points. Running the full S3 with mps64 and pauli-path 1e-4 to measure this properly.
+
+## Near-Clifford vs generic (explains when Pauli-path works)
+Fraction of u3 gates at exact quarter-turn (Clifford) angles: S1 15%, S2 16%, **S3 90%**.
+Clifford gates map one Pauli term to one term (no branching), so Pauli-path stays exact on S3 and explodes/collapses on S2.
+
+S3 Pauli-path 1e-4, 19 qubits: FAST jobs (5-25 s) are exact to 2 decimals (q9,10,11,12,13,15,16,17);
+SLOW jobs (80-130 s) are often wrong (q2, q8 -> 0; q7 -0.30 vs -0.51). Slow = lots of branching = truncation damage.
+=> runtime is a per-qubit reliability signal.
+
+## Probe of G circuits with Pauli-path 1e-3 (qubits 0,4,8,12): ALL exactly 0.000, ~5 s each, for G2, G3 and G4.
+Control: S3 at 1e-3: q12 -> 0.000 (exact -0.65), q17 -> -0.33 (exact -0.81).
+=> 1e-3 is too coarse even for near-Clifford circuits, so the probe is INCONCLUSIVE for G3/G4. Re-probe at 1e-4.
+G2 is very likely generic anyway (smooth MPS light-cone pattern; MPS says q0 = +0.999 where PP says 0).
+
+## Hidden SDK options (found by reading the SDK source, not on the main page)
+- device "pauli-path.gpu" (added Oct 2025)
+- option "pauli_path_weight_cutoff" (pauli-path.gpu only): truncate Pauli strings by weight
+- "pauli_path_circuit_transpilation_level" 0-3 (default 2; 3 = aggressive gate-count reduction)
+- force_run=True (mps only): bypass server-side runtime limits
+- MPS default bond dimension is 256 (we used 64); max 2048 on mps.cpu, 4000 on mps.gpu
+- Pauli-path jobs hold $25 each while running (charged $0 so far): only one at a time on a $30 balance
+
+## Layouts confirmed from gate counts (two-qubit gates per layer inside one U)
+S2 7.5, G1 14.5, G2 17.5 = 1D chains (n-1 links, alternating layers); S3 12.2 = 5x6 grid (49 links / 4);
+G3 15.0 = 6x6 grid (60 links / 4); G4 15.8 = 2D with 63 links.
+S3 pauli-path 1e-4 on 19 qubits: corr² = 0.93 (the first 5 were lucky; slow jobs collapse).
+Plan (with teammate): G3/G4 -> pauli-path 1e-4 (if near-Clifford like S3); G2 -> MPS chi 128/256 on slope qubits 4-11, 27-31.

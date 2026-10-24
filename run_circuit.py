@@ -32,6 +32,8 @@ def default_tag(a) -> str:
         tag += f"_th{a.threshold:g}"
     if a.level is not None:
         tag += f"_lvl{a.level}"
+    if a.weight is not None:
+        tag += f"_w{a.weight}"
     return tag
 
 
@@ -39,10 +41,12 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("circuit", help="S1..S3 or G1..G4")
     ap.add_argument("--device", default="cpu",
-                    choices=["cpu", "gpu", "mps.cpu", "mps.gpu", "pauli-path"])
+                    choices=["cpu", "gpu", "mps.cpu", "mps.gpu", "pauli-path", "pauli-path.gpu"])
     ap.add_argument("--chi", type=int, help="mps_bond_dimension")
     ap.add_argument("--threshold", type=float, help="pauli_path_truncation_threshold (min 1e-5)")
     ap.add_argument("--level", type=int, help="pauli_path_circuit_transpilation_level 0-3")
+    ap.add_argument("--weight", type=int, help="pauli_path_weight_cutoff (pauli-path.gpu only; not in the docs)")
+    ap.add_argument("--force-run", action="store_true", help="mps only: bypass server-side runtime limits")
     ap.add_argument("--tag", help="name for this run (default built from settings)")
     ap.add_argument("--qubits", help="only these qubits, e.g. 0,5,9")
     ap.add_argument("--limit", type=int, help="only the first N qubits (for cost tests)")
@@ -51,7 +55,7 @@ def main():
                     help="stop submitting once this run's ACTUAL charges pass this many dollars")
     a = ap.parse_args()
 
-    bq = bluequbit.init()
+    bq = bluequbit.init(execution_mode="cloud")  # hidden circuits only run in the cloud; Hybrid machines default to local
     first = cid(a.circuit, 0)
     info = bq.get_circuit_info(first)  # free
     n = info.num_qubits
@@ -64,6 +68,8 @@ def main():
         options["pauli_path_truncation_threshold"] = a.threshold
     if a.level is not None:
         options["pauli_path_circuit_transpilation_level"] = a.level
+    if a.weight is not None:
+        options["pauli_path_weight_cutoff"] = a.weight
 
     tag = a.tag or default_tag(a)
     cache = load_cache(a.circuit, tag)
@@ -91,7 +97,7 @@ def main():
             try:
                 job = bq.run(cid(a.circuit, q), device=a.device, asynchronous=True,
                              pauli_sum=[(z_on(q, n), 1.0)], options=options or None,
-                             job_name=f"{a.circuit}_{q}_{tag}")
+                             job_name=f"{a.circuit}_{q}_{tag}", force_run=a.force_run)
             except BQJobNotCompleteError as e:
                 # the hackathon rejects a submit outright when 5 jobs are already running
                 # (including jobs from other scripts), so wait for a slot and try again
