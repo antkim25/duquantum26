@@ -195,3 +195,35 @@ OTOC tutorial: these circuits are OTOC(2) = <(B(t)M)^4> (sign problem; truncatio
 - Earlier: G3 q0 cpu 1e-4 -> -0.015 after 171 s.
 - Two CPU pauli-path jobs running at once hold $50 and block everything else (error showed "pending jobs estimated cost: $50.00").
 => Switch G3/G4 to MPS. First get any submission (G3/G4 were at 0), then raise chi on the light-cone-front qubits.
+
+## Pauli-path re-check with a proper control (~15:30)
+Worry: maybe G3 (6x6 grid, like S3) is near-Clifford by design, and our single probe qubit (14) was misleading
+(on S3, q14 also gave 0 at 1e-4 even though S3 is near-Clifford).
+- Control: S3 q12 at 1e-5 on pauli-path.gpu -> -0.653 in 6 s (works; 1e-5 is fine on a near-Clifford circuit).
+- G3 at 1e-4 on q0, q5, q35 (+ q14 earlier): all exactly 0.000. G3 at 1e-5: rejected (memory overflow).
+- G4 at 1e-4 on q0, q5, q35 (+ q14 earlier): all exactly 0.000.
+=> G3 and G4 are generic (not near-Clifford). On S3 the same pipeline is near-exact; on G3/G4 every term is truncated.
+   Samples teach the two cases: S3 = near-Clifford grid (Pauli-path), S2 = generic chain (MPS).
+   G3/G4 = generic GRIDS: the hardest case (Pauli-path collapses, MPS is slow). Stay with MPS.
+GPU spend so far: 12 jobs x $0.20 = ~$2.40.
+
+## G3/G4 MPS progress and timing (~16:00)
+- G4 chi 64: 1-6 min/job (free), values -0.09..+0.87 with clear structure (light-cone front visible).
+- G3 chi 64: 9-17 min/job; jobs over 15 min billed for the WHOLE runtime at $1/h (~$0.42 each). Budget cap stopped it at $2.10.
+- G3 chi 48: ~14 min/job (barely free), values ~1e-6: MPS has lost the signal on G3 entirely.
+  Time barely dropped from chi 64 -> 48, so bond dimension isn't what dominates G3's runtime.
+- shots=1 test (G2 q4 chi 64): same value (+0.834023) as 1024 shots, not faster. Sampling isn't the cost;
+  the expectation value is exact regardless of shots.
+- G3 = generic 6x6 grid, fully scrambled: hardest case for both MPS and Pauli-path. Expect a low score there.
+
+## G4 chi 64 scored 0/1000 (~17:19): MPS at chi 64 is garbage on 2D circuits
+- Full S3 check (30 qubits, exact known): mps chi 64 gives q17 exact -0.81 -> +1.00, q29 +0.17 -> -0.95,
+  q27 +0.96 -> +0.08. Wrong values of LARGE magnitude, not just squashed toward 0. So G4's "structure" was artifacts.
+- Why: MPS is a 1D chain over qubit index; a 2D grid cuts many couplers across each bond, so the needed chi explodes.
+- Per U: S3 392 cz / depth 32; G4 756 cz / depth 48 (deeper than S3).
+- SDK knobs checked (bluequbit 0.19.0b1 source): cloud accepts only mps_bond_dimension,
+  pauli_path_truncation_threshold (min 1e-5), pauli_path_circuit_transpilation_level, pauli_path_weight_cutoff.
+  mps_truncation_threshold (default 1e-10) exists only in local mode. No qubit-reordering option for MPS.
+- Jobs report run_results: mps_build_time (MPS) and max_paulis (Pauli-path), a measure of how many terms survived.
+- Pauli-path 1e-4 is NOT conclusive per qubit: on S3 it returned 0 for q2 (+0.21), q8 (+0.26), q14 (+0.03).
+  G4 at 1e-5 has only been tried on q14. Next: G4 pauli-path.gpu 1e-5 on more qubits, and calibrate high-chi MPS on S3.

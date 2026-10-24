@@ -47,6 +47,7 @@ def main():
     ap.add_argument("--level", type=int, help="pauli_path_circuit_transpilation_level 0-3")
     ap.add_argument("--weight", type=int, help="pauli_path_weight_cutoff (pauli-path.gpu only; not in the docs)")
     ap.add_argument("--force-run", action="store_true", help="mps only: bypass server-side runtime limits")
+    ap.add_argument("--shots", type=int, help="samples to draw (server default 1024 for mps; we only need the expectation)")
     ap.add_argument("--tag", help="name for this run (default built from settings)")
     ap.add_argument("--qubits", help="only these qubits, e.g. 0,5,9")
     ap.add_argument("--limit", type=int, help="only the first N qubits (for cost tests)")
@@ -112,12 +113,14 @@ def main():
             print(f"budget ${a.budget:.2f} reached (spent ${cache['cost']:.2f}); "
                   f"not submitting {len(todo)} more. Rerun with a higher --budget to continue.")
             todo = []
+        slots_full = False
         while todo and len(cache["pending"]) < a.batch:
             q = todo.pop(0)
             try:
                 job = bq.run(cid(a.circuit, q), device=a.device, asynchronous=True,
                              pauli_sum=[(z_on(q, n), 1.0)], options=options or None,
-                             job_name=f"{a.circuit}_{q}_{tag}", force_run=a.force_run)
+                             job_name=f"{a.circuit}_{q}_{tag}", force_run=a.force_run,
+                             shots=a.shots)
             except BQJobNotCompleteError as e:
                 # the hackathon rejects a submit outright when 5 jobs are already running
                 # (including jobs from other scripts), so wait for a slot and try again
@@ -126,8 +129,12 @@ def main():
                 if not funds and not any(s in str(e) for s in RETRY_STATES):
                     raise
                 todo.insert(0, q)
+<<<<<<< Updated upstream
                 if funds:
                     time.sleep(60)  # each refused submit is a job; don't burn the daily job cap
+=======
+                slots_full = True
+>>>>>>> Stashed changes
                 break
             cache["pending"][cid(a.circuit, q)] = job.job_id
             save_cache(a.circuit, tag, cache)
@@ -163,7 +170,9 @@ def main():
                 if job.run_status == "NOT_ENOUGH_FUNDS":
                     raise SystemExit("out of credits")
         save_cache(a.circuit, tag, cache)
-        if cache["pending"]:
+        if slots_full:
+            time.sleep(20)  # all 5 account slots busy (maybe other scripts): don't hammer the server
+        elif cache["pending"]:
             time.sleep(3)
 
     if len(cache["values"]) == n:
