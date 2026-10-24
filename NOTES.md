@@ -227,3 +227,12 @@ GPU spend so far: 12 jobs x $0.20 = ~$2.40.
 - Jobs report run_results: mps_build_time (MPS) and max_paulis (Pauli-path), a measure of how many terms survived.
 - Pauli-path 1e-4 is NOT conclusive per qubit: on S3 it returned 0 for q2 (+0.21), q8 (+0.26), q14 (+0.03).
   G4 at 1e-5 has only been tried on q14. Next: G4 pauli-path.gpu 1e-5 on more qubits, and calibrate high-chi MPS on S3.
+
+## G2 chi 256 (Colin, all 36 qubits, free, ~1.5-3 min/job): 547/600 (corr^2 0.91)
+- Not converged yet: 128 -> 256 still moves the front qubits by -0.06..-0.17 (q4-11, q27-33), always downward;
+  everything else moves < 0.025. Shift per doubling barely shrinks (64->128 ~ -0.19, 128->256 ~ -0.17 on q6/q7).
+- chi 512 on mps.cpu should take ~10 min/job (chi^2.1), still inside the free 15 min, but the submit needs
+  force_run (server wants an $82 balance). Run it with --force-run --max-minutes 14 so nothing gets billed.
+- The git merge of Colin's branch corrupted results/G2/mps.cpu_chi128.json and results/G3/pauli-path_th0.0001.json
+  (two versions spliced together). Rebuilt both from the two merge parents; no values lost.
+  Lesson: two machines must never write the same tag; give each account its own --tag.
