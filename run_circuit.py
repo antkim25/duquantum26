@@ -51,6 +51,8 @@ def main():
     ap.add_argument("--qubits", help="only these qubits, e.g. 0,5,9")
     ap.add_argument("--limit", type=int, help="only the first N qubits (for cost tests)")
     ap.add_argument("--batch", type=int, default=5, help="jobs in flight at once (hackathon limit: 5 running per user)")
+    ap.add_argument("--wait-funds", action="store_true",
+                    help="on NOT_ENOUGH_FUNDS at submit, wait and retry (another run is holding the balance)")
     ap.add_argument("--budget", type=float, default=1.0,
                     help="stop submitting once this run's ACTUAL charges pass this many dollars")
     a = ap.parse_args()
@@ -119,9 +121,13 @@ def main():
             except BQJobNotCompleteError as e:
                 # the hackathon rejects a submit outright when 5 jobs are already running
                 # (including jobs from other scripts), so wait for a slot and try again
-                if not any(s in str(e) for s in RETRY_STATES):
+                # with --wait-funds, a refusal because another run is holding the balance also waits
+                funds = a.wait_funds and "NOT_ENOUGH_FUNDS" in str(e)
+                if not funds and not any(s in str(e) for s in RETRY_STATES):
                     raise
                 todo.insert(0, q)
+                if funds:
+                    time.sleep(60)  # each refused submit is a job; don't burn the daily job cap
                 break
             cache["pending"][cid(a.circuit, q)] = job.job_id
             save_cache(a.circuit, tag, cache)
@@ -131,6 +137,12 @@ def main():
         jobs = bq.get(ids) if ids else []
         for job in jobs if isinstance(jobs, list) else [jobs]:
             key = next(k for k, v in cache["pending"].items() if v == job.job_id)
+            if job.ok or job.run_status in JOB_NO_RESULT_TERMINAL_STATES:
+                # per-job record for NOTES.md: how long it ran, what it cost, how it ended
+                cache.setdefault("metrics", {})[key] = {
+                    "job_id": job.job_id, "status": job.run_status,
+                    "run_time_ms": job.run_time_ms, "queue_time_ms": job.queue_time_ms,
+                    "cost": job.cost, "error": job.error_message}
             if job.ok:
                 cache["values"][key] = float(job.expectation_value)
                 del cache["pending"][key]
@@ -139,7 +151,8 @@ def main():
                 print(f"  {key:>14} = {job.expectation_value:+.6f}   "
                       f"[{len(cache['values'])}/{n}, {time.time() - t0:.0f}s, "
                       f"job {job.run_time_ms}ms ${job.cost or 0:.2f}, run total ${cache['cost']:.2f}]")
-            elif job.run_status in RETRY_STATES:
+            elif job.run_status in RETRY_STATES or (
+                    a.wait_funds and job.run_status == "NOT_ENOUGH_FUNDS"):
                 del cache["pending"][key]
                 todo.append(int(key.rsplit("_", 1)[1]))
                 print(f"  {key}: {job.run_status}, will retry")

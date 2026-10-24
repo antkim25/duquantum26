@@ -1,0 +1,15 @@
+[BQ-PYTHON-SDK][WARNING] - Beta version 0.19.0b1 of BlueQubit Python SDK is being used.
+G3: 36 qubits | info: CircuitInfo(circuit_id='Duke_G3_0', num_qubits=36, count_ops={'cz': 2872, 'u3': 5732, 'x': 2, 'z': 1}, depth_1q=199, depth_2q=192)
+tag=mps.cpu_chi128  done=0  pending=0  new=36
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: euT6LbBsRpRKxviY, name: G3_0_mps.cpu_chi128, device: mps.cpu, run status: RUNNING, created on: 2026-10-24 19:33:06 UTC, estimated runtime: 5652100 ms, allowed runtime: 12804200 ms, estimated cost: $2.36, num qubits: 36, shots: 1024
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: uAI1SGdtOhCyKtZN, name: G3_1_mps.cpu_chi128, device: mps.cpu, run status: RUNNING, created on: 2026-10-24 19:33:07 UTC, estimated runtime: 5652100 ms, allowed runtime: 12804200 ms, estimated cost: $2.36, num qubits: 36, shots: 1024
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: NoTQ19g1v4sLBE41, name: G3_2_mps.cpu_chi128, device: mps.cpu, run status: RUNNING, created on: 2026-10-24 19:33:09 UTC, estimated runtime: 5652100 ms, allowed runtime: 12804200 ms, estimated cost: $2.36, num qubits: 36, shots: 1024
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: YXTAqTFXAx3LcY2x, name: G3_3_mps.cpu_chi128, device: mps.cpu, run status: RUNNING, created on: 2026-10-24 19:33:10 UTC, estimated runtime: 5652100 ms, allowed runtime: 12804200 ms, estimated cost: $2.36, num qubits: 36, shots: 1024
+       Duke_G3_0 = -0.035265   [1/36, 896s, job 893962ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: ugIvTzgjKOnmpl0p, name: G3_4_mps.cpu_chi128, device: mps.cpu, run status: RUNNING, created on: 2026-10-24 19:48:06 UTC, estimated runtime: 5652100 ms, allowed runtime: 12804200 ms, estimated cost: $2.36, num qubits: 36, shots: 1024
+       Duke_G3_1 = -0.054847   [2/36, 1145s, job 1140796ms $0.48, run total $0.48]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: yXpY9K5MIow7ugJB, name: G3_5_mps.cpu_chi128, device: mps.cpu, run status: RUNNING, created on: 2026-10-24 19:52:14 UTC, estimated runtime: 5652100 ms, allowed runtime: 12804200 ms, estimated cost: $2.36, num qubits: 36, shots: 1024
+       Duke_G3_2 = +0.000017   [3/36, 1190s, job 1183643ms $0.50, run total $0.98]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: B0QK30fO3UdL4Gsp, name: G3_6_mps.cpu_chi128, device: mps.cpu, run status: RUNNING, created on: 2026-10-24 19:53:00 UTC, estimated runtime: 5652100 ms, allowed runtime: 12804200 ms, estimated cost: $2.36, num qubits: 36, shots: 1024
+       Duke_G3_3 = -0.001527   [4/36, 1195s, job 1185526ms $0.50, run total $1.48]
+budget $1.00 reached (spent $1.48); not submitting 29 more. Rerun with a higher --budget to continue.

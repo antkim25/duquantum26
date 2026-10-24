@@ -1,0 +1,6 @@
+[BQ-PYTHON-SDK][WARNING] - Beta version 0.19.0b1 of BlueQubit Python SDK is being used.
+G2: 36 qubits | info: CircuitInfo(circuit_id='Duke_G2_0', num_qubits=36, count_ops={'cz': 3780, 'u3': 7704, 'x': 2, 'z': 1}, depth_1q=223, depth_2q=216)
+tag=mps.cpu_chi128  done=0  pending=0  new=1
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: H3run3k2AKyAMhzx, name: G2_8_mps.cpu_chi128, device: mps.cpu, run status: RUNNING, created on: 2026-10-24 18:52:46 UTC, estimated runtime: 7230100 ms, allowed runtime: 13308000.0 ms, estimated cost: $3.02, num qubits: 36, shots: 1024
+       Duke_G2_8 = +0.106461   [1/36, 133s, job 130356ms $0.00, run total $0.00]
+1/36 done; no CSV yet

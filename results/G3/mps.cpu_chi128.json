@@ -1,0 +1,51 @@
+{
+ "meta": {
+  "device": "mps.cpu",
+  "options": {
+   "mps_bond_dimension": 128
+  },
+  "n": 36
+ },
+ "values": {
+  "Duke_G3_0": -0.03526483584030083,
+  "Duke_G3_1": -0.05484725671585248,
+  "Duke_G3_2": 1.653797276832615e-05,
+  "Duke_G3_3": -0.001527118755186524
+ },
+ "pending": {},
+ "metrics": {
+  "Duke_G3_0": {
+   "job_id": "euT6LbBsRpRKxviY",
+   "status": "COMPLETED",
+   "run_time_ms": 893962,
+   "queue_time_ms": 292,
+   "cost": 0.0,
+   "error": null
+  },
+  "Duke_G3_1": {
+   "job_id": "uAI1SGdtOhCyKtZN",
+   "status": "COMPLETED",
+   "run_time_ms": 1140796,
+   "queue_time_ms": 307,
+   "cost": 0.48,
+   "error": null
+  },
+  "Duke_G3_2": {
+   "job_id": "NoTQ19g1v4sLBE41",
+   "status": "COMPLETED",
+   "run_time_ms": 1183643,
+   "queue_time_ms": 286,
+   "cost": 0.5,
+   "error": null
+  },
+  "Duke_G3_3": {
+   "job_id": "YXTAqTFXAx3LcY2x",
+   "status": "COMPLETED",
+   "run_time_ms": 1185526,
+   "queue_time_ms": 315,
+   "cost": 0.5,
+   "error": null
+  }
+ },
+ "cost": 1.48
+}
