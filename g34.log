@@ -1,0 +1,8 @@
+nohup: ignoring input
+[BQ-PYTHON-SDK][WARNING] - Beta version 0.19.0b1 of BlueQubit Python SDK is being used.
+G3: 36 qubits | info: CircuitInfo(circuit_id='Duke_G3_0', num_qubits=36, count_ops={'cz': 2872, 'u3': 5732, 'x': 2, 'z': 1}, depth_1q=199, depth_2q=192)
+tag=mps.cpu_chi64  done=0  pending=0  new=36
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: 0tl9h88IFU2706kM, name: G3_0_mps.cpu_chi64, device: mps.cpu, run status: RUNNING, created on: 2026-10-24 18:42:18 UTC, estimated runtime: 1721300 ms, allowed runtime: 4942600 ms, estimated cost: $0.72, num qubits: 36, shots: 1024
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: Tdjoz1wA78lUWcPP, name: G3_1_mps.cpu_chi64, device: mps.cpu, run status: RUNNING, created on: 2026-10-24 18:42:19 UTC, estimated runtime: 1721300 ms, allowed runtime: 4942600 ms, estimated cost: $0.72, num qubits: 36, shots: 1024
+       Duke_G3_0 = +0.032041   [1/36, 574s, job 567012ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: PhX6gYP7LT0GygGr, name: G3_2_mps.cpu_chi64, device: mps.cpu, run status: RUNNING, created on: 2026-10-24 18:51:53 UTC, estimated runtime: 1721300 ms, allowed runtime: 4942600 ms, estimated cost: $0.72, num qubits: 36, shots: 1024

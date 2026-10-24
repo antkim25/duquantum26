@@ -176,3 +176,22 @@ Total $1.48 actually charged. The `--budget 1` cap stopped new submits; the 3 jo
 Full G3 would be ~$18 and ~3 h, and the values come out ~0 like MPS on S3. MPS is not the method for G3.
 Next for G3: pauli-path 1e-4 probe on corner/edge qubits (0, 5, 30, 35, 2, 33), where true values are likely far
 from 0. q14 = 0 is not proof of collapse: middle qubits are probably scrambled to ~0 anyway.
+## From the official docs (OTOC tutorial, devices/pricing page, "Choosing a quantum simulator")
+Pricing: cpu FREE (60 min/job); mps.cpu and pauli-path (cpu) FREE up to 15 min/job, then $1/h (min $0.20);
+mps.gpu and pauli-path.gpu $3/h. Hybrid notebook SMALL = $0.20/h (24 h ~ $4.80 of credits), LARGE $1.50/h.
+Pauli-path speed (127-qubit benchmark): delta 1e-4 -> cpu 324 s vs gpu 1.2 s; 5e-5 -> 1295 s vs 1.6 s. GPU wins below ~1e-3.
+MPS speed: cpu time ~ chi^2.1, gpu ~ chi^1.5; crossover chi ~128; chi >= 256 -> mps.gpu (2x at 256, ~7x at 1024).
+  => G2 chi 64 took 56 s, so chi 128 ~ 2.5 min, chi 256 ~ 11 min on mps.cpu (inside the free 15 min).
+Convergence: sweep the knob until the answer stops moving; MPS/PP can get WORSE before better (non-monotonic).
+OTOC tutorial: these circuits are OTOC(2) = <(B(t)M)^4> (sign problem; truncation kills terms that would refocus).
+  Pauli paths return 0 on random circuits at every threshold but converge on near-Clifford circuits.
+  Deep in the scrambled region, generic circuits give ~0 +- 2^(-n/2) (~0.004 at 36 qubits): no signal there.
+  The circuit-specific signal is in the band just behind the light-cone front -> for G2 that's the slope qubits.
+
+## Pauli-path verdict for G3/G4: generic circuits, Pauli-path fails (14:5x)
+- pauli-path.gpu works: S3 q12 at 1e-4 = -0.654448 (exact -0.654), 5 s. But each GPU job is billed at least $0.20.
+- G3 q14: 1e-4 -> 0.000; 1e-5 -> REJECTED ("threshold too small... memory overflow") = Pauli terms explode = not near-Clifford.
+- G4 q14: 1e-4 -> 0.000; 1e-5 -> 0.00006 (47 s). Collapse, as on S2.
+- Earlier: G3 q0 cpu 1e-4 -> -0.015 after 171 s.
+- Two CPU pauli-path jobs running at once hold $50 and block everything else (error showed "pending jobs estimated cost: $50.00").
+=> Switch G3/G4 to MPS. First get any submission (G3/G4 were at 0), then raise chi on the light-cone-front qubits.

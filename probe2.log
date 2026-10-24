@@ -1,0 +1,7 @@
+nohup: ignoring input
+[BQ-PYTHON-SDK][WARNING] - Beta version 0.19.0b1 of BlueQubit Python SDK is being used.
+G3: 36 qubits | info: CircuitInfo(circuit_id='Duke_G3_0', num_qubits=36, count_ops={'cz': 2872, 'u3': 5732, 'x': 2, 'z': 1}, depth_1q=199, depth_2q=192)
+tag=pauli-path_th0.0001  done=0  pending=0  new=4
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: x4OwapL8BvG4w0XC, name: G3_0_pauli-path_th0.0001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:31:07 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 36
+       Duke_G3_0 = -0.014754   [1/36, 185s, job 171378ms $0.00, run total $0.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: 5MGLCsQEqLFKh8zc, name: G3_4_pauli-path_th0.0001, device: pauli-path, run status: RUNNING, created on: 2026-10-24 18:34:29 UTC, estimated runtime: 360000000 ms, allowed runtime: 360000000 ms, estimated cost: $25.00, num qubits: 36

@@ -1,0 +1,17 @@
+{
+ "meta": {
+  "device": "pauli-path.gpu",
+  "options": {
+   "pauli_path_truncation_threshold": 0.0001
+  },
+  "n": 38
+ },
+ "values": {
+  "Duke_G4_14": 0.0,
+  "Duke_G4_0": 0.0,
+  "Duke_G4_5": 0.0,
+  "Duke_G4_35": 0.0
+ },
+ "pending": {},
+ "cost": 0.8
+}
