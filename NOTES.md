@@ -38,6 +38,13 @@ So the per-qubit pattern = "how strongly did information from q0 spread to qubit
 | S3 | S3_cpu.csv | exact statevector, BlueQubit cpu by ID | 100/100 |
 | G1 | G1_cpu.csv | exact statevector, BlueQubit cpu by ID | 300/300 |
 | S1 | S1_exact_local.csv | exact statevector (Qiskit, local); matches BlueQubit cpu (corr²=1) | 100/100 (12:31, penalty 1.03h) |
+| G2 | G2 chi 256 (Colin) | MPS chi 256 on mps.cpu, all 36 qubits | 547/600 |
+| G3 | G3_ppgpu_lvl1.csv | pauli-path.gpu, transpilation level 1, finest accepted threshold per qubit | **800/800** |
+| G4 | G4_pp_lvl3.csv | pauli-path.gpu, transpilation level 3, 2e-5 (most qubits) | 191/1000 |
+| G4 | G4_lvl3_finest.csv | same, finest accepted threshold per qubit (1e-5..3e-5), merge_finest.py | 207/1000 |
+| G2 | G2_g2_finest_lvl3.csv | pauli-path.gpu, transpilation level 3, finest accepted threshold per qubit | **591/600** |
+
+**Total as of Oct 25 morning: 2,198 / 3,000** (see "Final scores" at the end).
 
 ## What I learned / dead ends
 
@@ -268,6 +275,57 @@ S2 (generic 16q chain, exact known), pauli-path.gpu:
 the server sets a per-circuit minimum threshold. Each GPU job ~5-20 s, $0.20.
 G4 at 2e-5: q4 0.000, q22 0.000, q36 -0.012. At 1e-5: q0 8e-5, q4 6e-4, q14 6e-5, q11 rejected.
 => G4 needs a threshold below what the server accepts. Colin's 2e-5..5e-5 rejections were on CPU pauli-path.
+
+## G3 breakthrough: transpilation level 1 (Oct 24, ~7 pm ET) -> 800/800
+Rhik's hint: "check what additional parameters you can pass into it, it isn't just threshold".
+- At the default `pauli_path_circuit_transpilation_level` (2), every G3 threshold the server accepted returned ~0.
+- At level 1 the server accepts much finer thresholds and the signal comes back. Our reading: G3's Clifford gates
+  arrive compiled into generic-looking u3; level 1 keeps them as Cliffords (one Pauli string -> one string, no
+  branching), so only the Rz gates branch and far fewer terms are created.
+- Check on S3 q14 (exact +0.0245): level 2 -> 0.000 (only 5e-5 accepted); level 1 -> +0.0246 at 1.5e-5;
+  level 0 -> +0.0246 at 2e-5; level 3 -> +0.0276 at 3e-5.
+- `pp_finest.py`: per qubit, tries 1e-5, 1.5e-5, 2e-5, 3e-5, 5e-5, 1e-4 and keeps the first accepted
+  (refused jobs don't run and aren't billed). G3 thresholds used: 1e-5..5e-5. 36 jobs, $7.20.
+- G3 values range -0.335 .. +0.227. Scored 800/800 on the first submission.
+
+## Platform limits learned the hard way
+- **1 GPU job at a time per account** (HACKATHON_PARALLEL_JOBS_LIMIT). CPU allows 5. Parallel GPU workers on one
+  account crash; split GPU work across accounts instead (each account has its own GPU slot).
+- Refused thresholds (FAILED_VALIDATION) take ~1 min to come back but cost nothing.
+- Weight cutoff does not change which thresholds the server accepts.
+- mps.cpu jobs past 15 min are billed (~$0.42 for a 17-min G3 chi 64 job).
+
+## G4: Pauli-path at transpilation level 3 (Oct 25, ~1-4 am ET) -> 191 -> 207
+- Haar-random gates, so level 1 doesn't help on G4 (q0, q14, q22, q35 all ~0 at level 1).
+- **Level 3** is the one that works on Haar circuits: S2 (exact known) at level 3, 2e-5 matches exact
+  (q10 0.601 vs 0.582, q4 -0.082 vs -0.083). On G4, q22: level 1/2 -> 0.000, level 3 -> +0.082; q36 -> +0.147.
+- Draft (mostly 2e-5): 191/1000. Rerunning at the finest accepted threshold (1e-5..1.5e-5, split across Bryan's and
+  Avi's accounts), merged with `merge_finest.py` (smallest threshold per qubit wins): 207/1000.
+- Going 2e-5 -> 1-1.5e-5 kept the sign on 25/26 qubits and grew magnitudes 1.0-1.4x, so the small values are real
+  signal squashed by truncation, not noise. But only 6 qubits (22, 23, 28, 29, 36, 37) are clearly nonzero;
+  32 of 38 are below 0.02 while the problem says most true values are within +-0.1.
+- MPS chi 64 on G4 (0/1000) followed distance from the butterfly (corr 0.78): a fake light cone made by truncation.
+
+## Mini-G4 test bench (Oct 25, ~2 am ET)
+No hackathon circuit is a 2D Haar grid with known answers, so we built one: `mini_g4.py` (4x5 grid, 12 layers of
+Haar 2-qubit gates compiled to u3+cz, butterfly on corner q0, same U X U^dag Z U X U^dag echo). Exact values from a
+local Aer statevector (~1 min): 18/20 within +-0.1, max 0.19, largest at the far corners, like G4's description.
+`mini_pp.py` runs the uploaded circuits on pauli-path.gpu.
+- Level 3 at 1e-4: corr^2 = **0.86** vs exact ($4.00). Positive values come out too big (q19 0.36 vs 0.17),
+  negative ones get squashed (q18 -0.008 vs -0.087), the same lopsided pattern as G4.
+- Corrections chosen on the mini-G4: sign*sqrt|v| 0.84, sign*|v|^(1/3) 0.75 (worse); boosting negatives x3-5 0.87
+  (too small to trust). => No correction applied to G4.
+- Conclusion: the method is right; G4 (3x the gates) is simply far more squashed at the 1e-5 floor than the mini
+  is at 1e-4. G4 needs a finer threshold than the server allows.
+
+## Open question for Rhik (asked Oct 25 ~2 am ET)
+Is scaling the observable (pauli_sum=[(Z_q, 4.0)], result / 4) allowed, to reach an effectively finer threshold?
+It gets around the platform's threshold check, so do NOT run it until he says yes. If yes: check on the mini-G4
+first (~$1), then all 38 G4 qubits (~$7.60, split across two accounts for the 1-GPU-job limit).
+
+## Spend (Bryan's account, actual charges)
+~$17.70 total: G3 MPS chi 64 test $1.26, S3/G3 threshold and level tests $2.00, G3 level-1 run $7.20 (36 qubits),
+S2 + G4 level-1 tests $1.00, G4 second half $2.20, mini-G4 $4.00. (Check the usage page for the exact figure.)
 
 ## Final scores (Oct 25 morning)
 | Circuit | Method | Score |
