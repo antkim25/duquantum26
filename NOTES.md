@@ -268,3 +268,13 @@ S2 (generic 16q chain, exact known), pauli-path.gpu:
 the server sets a per-circuit minimum threshold. Each GPU job ~5-20 s, $0.20.
 G4 at 2e-5: q4 0.000, q22 0.000, q36 -0.012. At 1e-5: q0 8e-5, q4 6e-4, q14 6e-5, q11 rejected.
 => G4 needs a threshold below what the server accepts. Colin's 2e-5..5e-5 rejections were on CPU pauli-path.
+
+## Final scores (Oct 25 morning)
+| Circuit | Method | Score |
+|---|---|---|
+| S1, S2 | exact statevector, local | 100, 100 |
+| S3, G1 | exact statevector, BlueQubit CPU | 100, 300 |
+| G2 | pauli-path.gpu, level 3, finest accepted threshold per qubit (MPS chi64/128/256 gave 426/497/547) | 591 / 600 |
+| G3 | pauli-path.gpu, level 1, finest accepted threshold per qubit | 800 / 800 |
+| G4 | pauli-path.gpu, level 3, finest accepted threshold per qubit (MPS chi64 gave 0; mixed 2e-5 run gave 191) | 207 / 1000 |
+Total 2,198 / 3,000.

@@ -55,3 +55,51 @@
 [BQ-PYTHON-SDK][INFO] - Submitted: Job ID: o0KfS2jhO0nmrRbh, name: G2_20_g2_finest_lvl3, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-25 03:55:01 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 36
       Duke_G2_20 = +0.000000  at 1.5e-05  [84291ms $0.20, total $4.40]
   Duke_G2_21: 1e-05 rejected
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: lzcpAaZk93D7fWHP, name: G2_21_g2_finest_lvl3, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-25 04:00:43 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 36
+      Duke_G2_21 = -0.000101  at 1.5e-05  [77359ms $0.20, total $4.60]
+  Duke_G2_22: 1e-05 rejected
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: rXAt4rBw3ENktwdq, name: G2_22_g2_finest_lvl3, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-25 04:06:08 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 36
+      Duke_G2_22 = -0.000200  at 1.5e-05  [76129ms $0.20, total $4.80]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: 1IXKKbOphPaxHUxQ, name: G2_23_g2_finest_lvl3, device: pauli-path.gpu, run status: PENDING, created on: 2026-10-25 04:09:31 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 36
+[BQ-PYTHON-SDK][INFO] - Status changed: Job ID: 1IXKKbOphPaxHUxQ. From PENDING to RUNNING.
+      Duke_G2_23 = +0.000024  at 1e-05  [89866ms $0.20, total $5.00]
+  Duke_G2_24: 1e-05 rejected
+  Duke_G2_24: 1.5e-05 rejected
+  Duke_G2_24: 2e-05 rejected
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: 160cgVFg65fGGDyt, name: G2_24_g2_finest_lvl3, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-25 04:21:04 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 36
+      Duke_G2_24 = +0.000090  at 3e-05  [107244ms $0.20, total $5.20]
+  Duke_G2_25: 1e-05 rejected
+  Duke_G2_25: 1.5e-05 rejected
+  Duke_G2_25: 2e-05 rejected
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: t81PpoZkBK79D0rg, name: G2_25_g2_finest_lvl3, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-25 04:30:30 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 36
+      Duke_G2_25 = +0.001165  at 3e-05  [63044ms $0.20, total $5.40]
+  Duke_G2_26: 1e-05 rejected
+  Duke_G2_26: 1.5e-05 rejected
+  Duke_G2_26: 2e-05 rejected
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: LsBwqz5gxtp6XWZs, name: G2_26_g2_finest_lvl3, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-25 04:40:15 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 36
+      Duke_G2_26 = +0.000892  at 3e-05  [61336ms $0.20, total $5.60]
+  Duke_G2_27: 1e-05 rejected
+  Duke_G2_27: 1.5e-05 rejected
+  Duke_G2_27: 2e-05 rejected
+  Duke_G2_27: 3e-05 rejected
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: QRW2sITHTiRo8uWA, name: G2_27_g2_finest_lvl3, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-25 04:53:26 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 36
+      Duke_G2_27 = -0.008722  at 5e-05  [72780ms $0.20, total $5.80]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: vPstRl3HTQ2Ksclt, name: G2_28_g2_finest_lvl3, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-25 04:57:05 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 36
+      Duke_G2_28 = -0.023448  at 1e-05  [100894ms $0.20, total $6.00]
+  Duke_G2_29: 1e-05 rejected
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: I8IaH5nr5DoVOGug, name: G2_29_g2_finest_lvl3, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-25 05:01:39 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 36
+      Duke_G2_29 = -0.002119  at 1.5e-05  [120084ms $0.20, total $6.20]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: lZdV0eLSs6vBESpi, name: G2_31_g2_finest_lvl3, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-25 05:06:56 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 36
+      Duke_G2_31 = +0.074053  at 1e-05  [80478ms $0.20, total $6.40]
+  Duke_G2_32: 1e-05 rejected
+  Duke_G2_32: 1.5e-05 rejected
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: 0395bSsaMQQmAY98, name: G2_32_g2_finest_lvl3, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-25 05:15:47 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 36
+      Duke_G2_32 = +0.694516  at 2e-05  [74503ms $0.20, total $6.60]
+  Duke_G2_33: 1e-05 rejected
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: nrx1ieDn398CcaVv, name: G2_33_g2_finest_lvl3, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-25 05:21:03 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 36
+      Duke_G2_33 = +0.597157  at 1.5e-05  [60580ms $0.20, total $6.80]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: 4mXALDU3ixUfqHzJ, name: G2_34_g2_finest_lvl3, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-25 05:25:01 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 36
+      Duke_G2_34 = +0.980764  at 1e-05  [99065ms $0.20, total $7.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: BaPHDk6tlvOR9FHV, name: G2_35_g2_finest_lvl3, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-25 05:28:56 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 36
+      Duke_G2_35 = +0.978096  at 1e-05  [105695ms $0.20, total $7.20]
+wrote /Users/anthonykim/Desktop/Comp Sci Stuffs/duquantum26/submissions/G2_g2_finest_lvl3.csv
