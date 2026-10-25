@@ -1,0 +1,39 @@
+{
+ "meta": {
+  "device": "pauli-path.gpu",
+  "n": 38,
+  "options": {
+   "pauli_path_circuit_transpilation_level": 3
+  },
+  "source": "Avi's account, values copied from printed log"
+ },
+ "values": {
+  "Duke_G4_4": 0.008324,
+  "Duke_G4_5": -0.002574,
+  "Duke_G4_6": -0.000549,
+  "Duke_G4_8": 0.001479,
+  "Duke_G4_9": -0.009688,
+  "Duke_G4_10": -0.010691,
+  "Duke_G4_11": 0.008021,
+  "Duke_G4_13": 0.002607,
+  "Duke_G4_14": 0.009709,
+  "Duke_G4_15": 0.007595,
+  "Duke_G4_16": -0.010787,
+  "Duke_G4_17": 0.005371
+ },
+ "threshold": {
+  "Duke_G4_4": 1.5e-05,
+  "Duke_G4_5": 1e-05,
+  "Duke_G4_6": 1.5e-05,
+  "Duke_G4_8": 1.5e-05,
+  "Duke_G4_9": 1.5e-05,
+  "Duke_G4_10": 1.5e-05,
+  "Duke_G4_11": 2e-05,
+  "Duke_G4_13": 1.5e-05,
+  "Duke_G4_14": 1e-05,
+  "Duke_G4_15": 1e-05,
+  "Duke_G4_16": 1.5e-05,
+  "Duke_G4_17": 1.5e-05
+ },
+ "pending": {}
+}
