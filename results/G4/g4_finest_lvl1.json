@@ -1,0 +1,29 @@
+{
+ "meta": {
+  "device": "pauli-path.gpu",
+  "n": 38,
+  "ladder": [
+   1e-05,
+   1.5e-05,
+   2e-05,
+   3e-05,
+   5e-05,
+   0.0001
+  ],
+  "options": {
+   "pauli_path_circuit_transpilation_level": 1
+  }
+ },
+ "values": {
+  "Duke_G4_22": 0.0,
+  "Duke_G4_36": -0.005814288585500008,
+  "Duke_G4_4": 0.000449059187596098
+ },
+ "pending": {},
+ "threshold": {
+  "Duke_G4_22": 1.5e-05,
+  "Duke_G4_36": 2e-05,
+  "Duke_G4_4": 1e-05
+ },
+ "cost": 0.6000000000000001
+}
