@@ -1,0 +1,29 @@
+[BQ-PYTHON-SDK][WARNING] - Beta version 0.19.0b1 of BlueQubit Python SDK is being used.
+  Duke_G4_19: 1e-05 rejected
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: NX3WJv5ebDVmHRTA, name: G4_19_g4_fine_t2, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-25 01:58:27 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 38
+      Duke_G4_19 = -0.000315  at 1.5e-05  [60896ms $0.20, total $0.20]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: OsC2w7Scc295g7hD, name: G4_20_g4_fine_t2, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-25 02:01:16 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 38
+      Duke_G4_20 = +0.001168  at 1e-05  [82101ms $0.20, total $0.40]
+  Duke_G4_21: 1e-05 rejected
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: oBvJmtpdNmKxPXcB, name: G4_21_g4_fine_t2, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-25 02:07:54 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 38
+      Duke_G4_21 = +0.002794  at 1.5e-05  [86080ms $0.20, total $0.60]
+  Duke_G4_23: 1e-05 rejected
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: mgy6g87CEzez0pe0, name: G4_23_g4_fine_t2, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-25 02:11:28 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 38
+      Duke_G4_23 = +0.040053  at 1.5e-05  [70117ms $0.20, total $0.80]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: jydgXaX6JFjr0FYf, name: G4_24_g4_fine_t2, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-25 02:14:38 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 38
+      Duke_G4_24 = -0.005431  at 1e-05  [76652ms $0.20, total $1.00]
+  Duke_G4_25: 1e-05 rejected
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: RWK0cifgSOOlyeeH, name: G4_25_g4_fine_t2, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-25 02:19:49 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 38
+      Duke_G4_25 = +0.006485  at 1.5e-05  [85023ms $0.20, total $1.20]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: AT8xpTezx9uxj494, name: G4_27_g4_fine_t2, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-25 02:22:55 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 38
+      Duke_G4_27 = -0.007425  at 1e-05  [105427ms $0.20, total $1.40]
+  Duke_G4_28: 1e-05 rejected
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: 27Vz9BuJywnAXKJZ, name: G4_28_g4_fine_t2, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-25 02:29:26 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 38
+      Duke_G4_28 = +0.136085  at 1.5e-05  [53280ms $0.20, total $1.60]
+  Duke_G4_29: 1e-05 rejected
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: 7wh60gPr6HYkkNCJ, name: G4_29_g4_fine_t2, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-25 02:33:13 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 38
+      Duke_G4_29 = +0.133340  at 1.5e-05  [54960ms $0.20, total $1.80]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: b9IJF54daZbrhuZK, name: G4_30_g4_fine_t2, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-25 02:36:29 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 38
+      Duke_G4_30 = +0.013173  at 1e-05  [104051ms $0.20, total $2.00]
+[BQ-PYTHON-SDK][INFO] - Submitted: Job ID: 94TsnwkCiD5Vf2cF, name: G4_31_g4_fine_t2, device: pauli-path.gpu, run status: RUNNING, created on: 2026-10-25 02:40:08 UTC, estimated runtime: 100 ms, allowed runtime: 1260000 ms, estimated cost: $0.67, num qubits: 38
+      Duke_G4_31 = +0.016413  at 1e-05  [74326ms $0.20, total $2.20]
